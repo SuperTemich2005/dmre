@@ -1,0 +1,1137 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scenes/main_menu.gd" type="Script" id=1]
+[ext_resource path="res://music/main_menu.ogg" type="AudioStream" id=2]
+[ext_resource path="res://sprites/spritesheets/city.png" type="Texture" id=3]
+[ext_resource path="res://sprites/logo.png" type="Texture" id=4]
+[ext_resource path="res://themes/default_theme.tres" type="Theme" id=5]
+[ext_resource path="res://sprites/logo2.png" type="Texture" id=6]
+[ext_resource path="res://sprites/logo3.png" type="Texture" id=7]
+[ext_resource path="res://music/fx/gui/intro_boing.ogg" type="AudioStream" id=8]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -0.150356, -0.00686646, 0, 0, 0, 0, 473.404, 1.03952, 0, 0, 0, 0, 473.657, 277.342, 0, 0, 0, 0, -0.271267, 276.759, 0, 0, 0, 0, -0.271267, 0.567924 )
+}
+
+[sub_resource type="TileSet" id=2]
+0/name = "city.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 258, 86, 43, 43 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "city.png 1"
+1/texture = ExtResource( 3 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 301, 86, 43, 43 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "city.png 2"
+2/texture = ExtResource( 3 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 344, 86, 43, 43 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "city.png 3"
+3/texture = ExtResource( 3 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 258, 0, 43, 43 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "city.png 4"
+4/texture = ExtResource( 3 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 301, 0, 43, 43 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+5/name = "city.png 5"
+5/texture = ExtResource( 3 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 343, 38, 0, 5 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "city.png 6"
+6/texture = ExtResource( 3 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 301, 43, 43, 43 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+7/name = "city.png 7"
+7/texture = ExtResource( 3 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 344, 43, 43, 43 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
+8/name = "city.png 8"
+8/texture = ExtResource( 3 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 258, 43, 43, 43 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape_one_way = false
+8/shape_one_way_margin = 0.0
+8/shapes = [  ]
+8/z_index = 0
+9/name = "city.png 9"
+9/texture = ExtResource( 3 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 215, 86, 43, 43 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape_one_way = false
+9/shape_one_way_margin = 0.0
+9/shapes = [  ]
+9/z_index = 0
+10/name = "city.png 10"
+10/texture = ExtResource( 3 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 172, 86, 43, 43 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape_one_way = false
+10/shape_one_way_margin = 0.0
+10/shapes = [  ]
+10/z_index = 0
+11/name = "city.png 11"
+11/texture = ExtResource( 3 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 344, 129, 43, 43 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape_one_way = false
+11/shape_one_way_margin = 0.0
+11/shapes = [  ]
+11/z_index = 0
+12/name = "city.png 12"
+12/texture = ExtResource( 3 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 301, 129, 43, 43 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape_one_way = false
+12/shape_one_way_margin = 0.0
+12/shapes = [  ]
+12/z_index = 0
+13/name = "city.png 13"
+13/texture = ExtResource( 3 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 258, 129, 43, 43 )
+13/tile_mode = 0
+13/occluder_offset = Vector2( 0, 0 )
+13/navigation_offset = Vector2( 0, 0 )
+13/shape_offset = Vector2( 0, 0 )
+13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+13/shape_one_way = false
+13/shape_one_way_margin = 0.0
+13/shapes = [  ]
+13/z_index = 0
+14/name = "city.png 14"
+14/texture = ExtResource( 3 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 258, 172, 43, 43 )
+14/tile_mode = 0
+14/occluder_offset = Vector2( 0, 0 )
+14/navigation_offset = Vector2( 0, 0 )
+14/shape_offset = Vector2( 0, 0 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+14/shape_one_way = false
+14/shape_one_way_margin = 0.0
+14/shapes = [  ]
+14/z_index = 0
+15/name = "city.png 15"
+15/texture = ExtResource( 3 )
+15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 301, 172, 43, 43 )
+15/tile_mode = 0
+15/occluder_offset = Vector2( 0, 0 )
+15/navigation_offset = Vector2( 0, 0 )
+15/shape_offset = Vector2( 0, 0 )
+15/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+15/shape_one_way = false
+15/shape_one_way_margin = 0.0
+15/shapes = [  ]
+15/z_index = 0
+16/name = "city.png 16"
+16/texture = ExtResource( 3 )
+16/tex_offset = Vector2( 0, 0 )
+16/modulate = Color( 1, 1, 1, 1 )
+16/region = Rect2( 387, 86, 43, 43 )
+16/tile_mode = 0
+16/occluder_offset = Vector2( 0, 0 )
+16/navigation_offset = Vector2( 0, 0 )
+16/shape_offset = Vector2( 0, 0 )
+16/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+16/shape_one_way = false
+16/shape_one_way_margin = 0.0
+16/shapes = [  ]
+16/z_index = 0
+17/name = "city.png 17"
+17/texture = ExtResource( 3 )
+17/tex_offset = Vector2( 0, 0 )
+17/modulate = Color( 1, 1, 1, 1 )
+17/region = Rect2( 387, 129, 43, 43 )
+17/tile_mode = 0
+17/occluder_offset = Vector2( 0, 0 )
+17/navigation_offset = Vector2( 0, 0 )
+17/shape_offset = Vector2( 0, 0 )
+17/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+17/shape_one_way = false
+17/shape_one_way_margin = 0.0
+17/shapes = [  ]
+17/z_index = 0
+18/name = "city.png 18"
+18/texture = ExtResource( 3 )
+18/tex_offset = Vector2( 0, 0 )
+18/modulate = Color( 1, 1, 1, 1 )
+18/region = Rect2( 344, 172, 43, 43 )
+18/tile_mode = 0
+18/occluder_offset = Vector2( 0, 0 )
+18/navigation_offset = Vector2( 0, 0 )
+18/shape_offset = Vector2( 0, 0 )
+18/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+18/shape_one_way = false
+18/shape_one_way_margin = 0.0
+18/shapes = [  ]
+18/z_index = 0
+19/name = "city.png 19"
+19/texture = ExtResource( 3 )
+19/tex_offset = Vector2( 0, 0 )
+19/modulate = Color( 1, 1, 1, 1 )
+19/region = Rect2( 387, 172, 43, 43 )
+19/tile_mode = 0
+19/occluder_offset = Vector2( 0, 0 )
+19/navigation_offset = Vector2( 0, 0 )
+19/shape_offset = Vector2( 0, 0 )
+19/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+19/shape_one_way = false
+19/shape_one_way_margin = 0.0
+19/shapes = [  ]
+19/z_index = 0
+20/name = "city.png 20"
+20/texture = ExtResource( 3 )
+20/tex_offset = Vector2( 0, 0 )
+20/modulate = Color( 1, 1, 1, 1 )
+20/region = Rect2( 129, 129, 43, 43 )
+20/tile_mode = 0
+20/occluder_offset = Vector2( 0, 0 )
+20/navigation_offset = Vector2( 0, 0 )
+20/shape_offset = Vector2( 0, 0 )
+20/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+20/shape_one_way = false
+20/shape_one_way_margin = 0.0
+20/shapes = [  ]
+20/z_index = 0
+21/name = "city.png 21"
+21/texture = ExtResource( 3 )
+21/tex_offset = Vector2( 0, 0 )
+21/modulate = Color( 1, 1, 1, 1 )
+21/region = Rect2( 430, 86, 43, 43 )
+21/tile_mode = 0
+21/occluder_offset = Vector2( 0, 0 )
+21/navigation_offset = Vector2( 0, 0 )
+21/shape_offset = Vector2( 0, 0 )
+21/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+21/shape_one_way = false
+21/shape_one_way_margin = 0.0
+21/shapes = [  ]
+21/z_index = 0
+22/name = "city.png 22"
+22/texture = ExtResource( 3 )
+22/tex_offset = Vector2( 0, 0 )
+22/modulate = Color( 1, 1, 1, 1 )
+22/region = Rect2( 430, 43, 43, 43 )
+22/tile_mode = 0
+22/occluder_offset = Vector2( 0, 0 )
+22/navigation_offset = Vector2( 0, 0 )
+22/shape_offset = Vector2( 0, 0 )
+22/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+22/shape_one_way = false
+22/shape_one_way_margin = 0.0
+22/shapes = [  ]
+22/z_index = 0
+23/name = "city.png 23"
+23/texture = ExtResource( 3 )
+23/tex_offset = Vector2( 0, 0 )
+23/modulate = Color( 1, 1, 1, 1 )
+23/region = Rect2( 387, 5, 43, 38 )
+23/tile_mode = 0
+23/occluder_offset = Vector2( 0, 0 )
+23/navigation_offset = Vector2( 0, 0 )
+23/shape_offset = Vector2( 0, 0 )
+23/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+23/shape_one_way = false
+23/shape_one_way_margin = 0.0
+23/shapes = [  ]
+23/z_index = 0
+24/name = "city.png 24"
+24/texture = ExtResource( 3 )
+24/tex_offset = Vector2( 0, 0 )
+24/modulate = Color( 1, 1, 1, 1 )
+24/region = Rect2( 430, 5, 43, 38 )
+24/tile_mode = 0
+24/occluder_offset = Vector2( 0, 0 )
+24/navigation_offset = Vector2( 0, 0 )
+24/shape_offset = Vector2( 0, 0 )
+24/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+24/shape_one_way = false
+24/shape_one_way_margin = 0.0
+24/shapes = [  ]
+24/z_index = 0
+25/name = "city.png 25"
+25/texture = ExtResource( 3 )
+25/tex_offset = Vector2( 0, 0 )
+25/modulate = Color( 1, 1, 1, 1 )
+25/region = Rect2( 0, 0, 43, 43 )
+25/tile_mode = 0
+25/occluder_offset = Vector2( 0, 0 )
+25/navigation_offset = Vector2( 0, 0 )
+25/shape_offset = Vector2( 0, 0 )
+25/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+25/shape_one_way = false
+25/shape_one_way_margin = 0.0
+25/shapes = [  ]
+25/z_index = 0
+26/name = "city.png 26"
+26/texture = ExtResource( 3 )
+26/tex_offset = Vector2( 0, 0 )
+26/modulate = Color( 1, 1, 1, 1 )
+26/region = Rect2( 86, 43, 43, 43 )
+26/tile_mode = 0
+26/occluder_offset = Vector2( 0, 0 )
+26/navigation_offset = Vector2( 0, 0 )
+26/shape_offset = Vector2( 0, 0 )
+26/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+26/shape_one_way = false
+26/shape_one_way_margin = 0.0
+26/shapes = [  ]
+26/z_index = 0
+27/name = "city.png 27"
+27/texture = ExtResource( 3 )
+27/tex_offset = Vector2( 0, 0 )
+27/modulate = Color( 1, 1, 1, 1 )
+27/region = Rect2( 129, 86, 43, 43 )
+27/tile_mode = 0
+27/occluder_offset = Vector2( 0, 0 )
+27/navigation_offset = Vector2( 0, 0 )
+27/shape_offset = Vector2( 0, 0 )
+27/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+27/shape_one_way = false
+27/shape_one_way_margin = 0.0
+27/shapes = [  ]
+27/z_index = 0
+28/name = "city.png 28"
+28/texture = ExtResource( 3 )
+28/tex_offset = Vector2( 0, 0 )
+28/modulate = Color( 1, 1, 1, 1 )
+28/region = Rect2( 86, 86, 43, 43 )
+28/tile_mode = 0
+28/occluder_offset = Vector2( 0, 0 )
+28/navigation_offset = Vector2( 0, 0 )
+28/shape_offset = Vector2( 0, 0 )
+28/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+28/shape_one_way = false
+28/shape_one_way_margin = 0.0
+28/shapes = [  ]
+28/z_index = 0
+29/name = "city.png 29"
+29/texture = ExtResource( 3 )
+29/tex_offset = Vector2( 0, 0 )
+29/modulate = Color( 1, 1, 1, 1 )
+29/region = Rect2( 129, 43, 43, 43 )
+29/tile_mode = 0
+29/occluder_offset = Vector2( 0, 0 )
+29/navigation_offset = Vector2( 0, 0 )
+29/shape_offset = Vector2( 0, 0 )
+29/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+29/shape_one_way = false
+29/shape_one_way_margin = 0.0
+29/shapes = [  ]
+29/z_index = 0
+30/name = "city.png 30"
+30/texture = ExtResource( 3 )
+30/tex_offset = Vector2( 0, 0 )
+30/modulate = Color( 1, 1, 1, 1 )
+30/region = Rect2( 43, 129, 43, 43 )
+30/tile_mode = 0
+30/occluder_offset = Vector2( 0, 0 )
+30/navigation_offset = Vector2( 0, 0 )
+30/shape_offset = Vector2( 0, 0 )
+30/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+30/shape_one_way = false
+30/shape_one_way_margin = 0.0
+30/shapes = [  ]
+30/z_index = 0
+31/name = "city.png 31"
+31/texture = ExtResource( 3 )
+31/tex_offset = Vector2( 0, 0 )
+31/modulate = Color( 1, 1, 1, 1 )
+31/region = Rect2( 0, 129, 43, 43 )
+31/tile_mode = 0
+31/occluder_offset = Vector2( 0, 0 )
+31/navigation_offset = Vector2( 0, 0 )
+31/shape_offset = Vector2( 0, 0 )
+31/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+31/shape_one_way = false
+31/shape_one_way_margin = 0.0
+31/shapes = [  ]
+31/z_index = 0
+32/name = "city.png 32"
+32/texture = ExtResource( 3 )
+32/tex_offset = Vector2( 0, 0 )
+32/modulate = Color( 1, 1, 1, 1 )
+32/region = Rect2( 43, 172, 43, 43 )
+32/tile_mode = 0
+32/occluder_offset = Vector2( 0, 0 )
+32/navigation_offset = Vector2( 0, 0 )
+32/shape_offset = Vector2( 0, 0 )
+32/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+32/shape_one_way = false
+32/shape_one_way_margin = 0.0
+32/shapes = [  ]
+32/z_index = 0
+33/name = "city.png 33"
+33/texture = ExtResource( 3 )
+33/tex_offset = Vector2( 0, 0 )
+33/modulate = Color( 1, 1, 1, 1 )
+33/region = Rect2( 0, 172, 43, 43 )
+33/tile_mode = 0
+33/occluder_offset = Vector2( 0, 0 )
+33/navigation_offset = Vector2( 0, 0 )
+33/shape_offset = Vector2( 0, 0 )
+33/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+33/shape_one_way = false
+33/shape_one_way_margin = 0.0
+33/shapes = [  ]
+33/z_index = 0
+34/name = "city.png 34"
+34/texture = ExtResource( 3 )
+34/tex_offset = Vector2( 0, 0 )
+34/modulate = Color( 1, 1, 1, 1 )
+34/region = Rect2( 43, 86, 43, 43 )
+34/tile_mode = 0
+34/occluder_offset = Vector2( 0, 0 )
+34/navigation_offset = Vector2( 0, 0 )
+34/shape_offset = Vector2( 0, 0 )
+34/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+34/shape_one_way = false
+34/shape_one_way_margin = 0.0
+34/shapes = [  ]
+34/z_index = 0
+35/name = "city.png 35"
+35/texture = ExtResource( 3 )
+35/tex_offset = Vector2( 0, 0 )
+35/modulate = Color( 1, 1, 1, 1 )
+35/region = Rect2( 0, 86, 43, 43 )
+35/tile_mode = 0
+35/occluder_offset = Vector2( 0, 0 )
+35/navigation_offset = Vector2( 0, 0 )
+35/shape_offset = Vector2( 0, 0 )
+35/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+35/shape_one_way = false
+35/shape_one_way_margin = 0.0
+35/shapes = [  ]
+35/z_index = 0
+36/name = "city.png 36"
+36/texture = ExtResource( 3 )
+36/tex_offset = Vector2( 0, 0 )
+36/modulate = Color( 1, 1, 1, 1 )
+36/region = Rect2( 0, 43, 43, 43 )
+36/tile_mode = 0
+36/occluder_offset = Vector2( 0, 0 )
+36/navigation_offset = Vector2( 0, 0 )
+36/shape_offset = Vector2( 0, 0 )
+36/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+36/shape_one_way = false
+36/shape_one_way_margin = 0.0
+36/shapes = [  ]
+36/z_index = 0
+37/name = "city.png 37"
+37/texture = ExtResource( 3 )
+37/tex_offset = Vector2( 0, 0 )
+37/modulate = Color( 1, 1, 1, 1 )
+37/region = Rect2( 43, 43, 43, 43 )
+37/tile_mode = 0
+37/occluder_offset = Vector2( 0, 0 )
+37/navigation_offset = Vector2( 0, 0 )
+37/shape_offset = Vector2( 0, 0 )
+37/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+37/shape_one_way = false
+37/shape_one_way_margin = 0.0
+37/shapes = [  ]
+37/z_index = 0
+38/name = "city.png 38"
+38/texture = ExtResource( 3 )
+38/tex_offset = Vector2( 0, 0 )
+38/modulate = Color( 1, 1, 1, 1 )
+38/region = Rect2( 43, 0, 43, 43 )
+38/tile_mode = 0
+38/occluder_offset = Vector2( 0, 0 )
+38/navigation_offset = Vector2( 0, 0 )
+38/shape_offset = Vector2( 0, 0 )
+38/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+38/shape_one_way = false
+38/shape_one_way_margin = 0.0
+38/shapes = [  ]
+38/z_index = 0
+39/name = "city.png 39"
+39/texture = ExtResource( 3 )
+39/tex_offset = Vector2( 0, 0 )
+39/modulate = Color( 1, 1, 1, 1 )
+39/region = Rect2( 86, 0, 43, 43 )
+39/tile_mode = 0
+39/occluder_offset = Vector2( 0, 0 )
+39/navigation_offset = Vector2( 0, 0 )
+39/shape_offset = Vector2( 0, 0 )
+39/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+39/shape_one_way = false
+39/shape_one_way_margin = 0.0
+39/shapes = [  ]
+39/z_index = 0
+40/name = "city.png 40"
+40/texture = ExtResource( 3 )
+40/tex_offset = Vector2( 0, 0 )
+40/modulate = Color( 1, 1, 1, 1 )
+40/region = Rect2( 129, 0, 43, 43 )
+40/tile_mode = 0
+40/occluder_offset = Vector2( 0, 0 )
+40/navigation_offset = Vector2( 0, 0 )
+40/shape_offset = Vector2( 0, 0 )
+40/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+40/shape_one_way = false
+40/shape_one_way_margin = 0.0
+40/shapes = [  ]
+40/z_index = 0
+41/name = "city.png 41"
+41/texture = ExtResource( 3 )
+41/tex_offset = Vector2( 0, 0 )
+41/modulate = Color( 1, 1, 1, 1 )
+41/region = Rect2( 215, 0, 43, 43 )
+41/tile_mode = 0
+41/occluder_offset = Vector2( 0, 0 )
+41/navigation_offset = Vector2( 0, 0 )
+41/shape_offset = Vector2( 0, 0 )
+41/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+41/shape_one_way = false
+41/shape_one_way_margin = 0.0
+41/shapes = [  ]
+41/z_index = 0
+42/name = "city.png 42"
+42/texture = ExtResource( 3 )
+42/tex_offset = Vector2( 0, 0 )
+42/modulate = Color( 1, 1, 1, 1 )
+42/region = Rect2( 129, 215, 43, 43 )
+42/tile_mode = 0
+42/occluder_offset = Vector2( 0, 0 )
+42/navigation_offset = Vector2( 0, 0 )
+42/shape_offset = Vector2( 0, 0 )
+42/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+42/shape_one_way = false
+42/shape_one_way_margin = 0.0
+42/shapes = [  ]
+42/z_index = 0
+43/name = "city.png 43"
+43/texture = ExtResource( 3 )
+43/tex_offset = Vector2( 0, 0 )
+43/modulate = Color( 1, 1, 1, 1 )
+43/region = Rect2( 172, 215, 43, 43 )
+43/tile_mode = 0
+43/occluder_offset = Vector2( 0, 0 )
+43/navigation_offset = Vector2( 0, 0 )
+43/shape_offset = Vector2( 0, 0 )
+43/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+43/shape_one_way = false
+43/shape_one_way_margin = 0.0
+43/shapes = [  ]
+43/z_index = 0
+44/name = "city.png 44"
+44/texture = ExtResource( 3 )
+44/tex_offset = Vector2( 0, 0 )
+44/modulate = Color( 1, 1, 1, 1 )
+44/region = Rect2( 215, 215, 43, 43 )
+44/tile_mode = 0
+44/occluder_offset = Vector2( 0, 0 )
+44/navigation_offset = Vector2( 0, 0 )
+44/shape_offset = Vector2( 0, 0 )
+44/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+44/shape_one_way = false
+44/shape_one_way_margin = 0.0
+44/shapes = [  ]
+44/z_index = 0
+45/name = "city.png 45"
+45/texture = ExtResource( 3 )
+45/tex_offset = Vector2( 0, 0 )
+45/modulate = Color( 1, 1, 1, 1 )
+45/region = Rect2( 258, 215, 43, 43 )
+45/tile_mode = 0
+45/occluder_offset = Vector2( 0, 0 )
+45/navigation_offset = Vector2( 0, 0 )
+45/shape_offset = Vector2( 0, 0 )
+45/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+45/shape_one_way = false
+45/shape_one_way_margin = 0.0
+45/shapes = [  ]
+45/z_index = 0
+46/name = "city.png 46"
+46/texture = ExtResource( 3 )
+46/tex_offset = Vector2( 0, 0 )
+46/modulate = Color( 1, 1, 1, 1 )
+46/region = Rect2( 129, 172, 43, 43 )
+46/tile_mode = 0
+46/occluder_offset = Vector2( 0, 0 )
+46/navigation_offset = Vector2( 0, 0 )
+46/shape_offset = Vector2( 0, 0 )
+46/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+46/shape_one_way = false
+46/shape_one_way_margin = 0.0
+46/shapes = [  ]
+46/z_index = 0
+47/name = "city.png 47"
+47/texture = ExtResource( 3 )
+47/tex_offset = Vector2( 0, 0 )
+47/modulate = Color( 1, 1, 1, 1 )
+47/region = Rect2( 172, 172, 43, 43 )
+47/tile_mode = 0
+47/occluder_offset = Vector2( 0, 0 )
+47/navigation_offset = Vector2( 0, 0 )
+47/shape_offset = Vector2( 0, 0 )
+47/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+47/shape_one_way = false
+47/shape_one_way_margin = 0.0
+47/shapes = [  ]
+47/z_index = 0
+48/name = "city.png 48"
+48/texture = ExtResource( 3 )
+48/tex_offset = Vector2( 0, 0 )
+48/modulate = Color( 1, 1, 1, 1 )
+48/region = Rect2( 86, 129, 43, 43 )
+48/tile_mode = 0
+48/occluder_offset = Vector2( 0, 0 )
+48/navigation_offset = Vector2( 0, 0 )
+48/shape_offset = Vector2( 0, 0 )
+48/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+48/shape_one_way = false
+48/shape_one_way_margin = 0.0
+48/shapes = [  ]
+48/z_index = 0
+49/name = "city.png 49"
+49/texture = ExtResource( 3 )
+49/tex_offset = Vector2( 0, 0 )
+49/modulate = Color( 1, 1, 1, 1 )
+49/region = Rect2( 86, 172, 43, 43 )
+49/tile_mode = 0
+49/occluder_offset = Vector2( 0, 0 )
+49/navigation_offset = Vector2( 0, 0 )
+49/shape_offset = Vector2( 0, 0 )
+49/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+49/shape_one_way = false
+49/shape_one_way_margin = 0.0
+49/shapes = [  ]
+49/z_index = 0
+50/name = "city.png 50"
+50/texture = ExtResource( 3 )
+50/tex_offset = Vector2( 0, 0 )
+50/modulate = Color( 1, 1, 1, 1 )
+50/region = Rect2( 86, 215, 43, 43 )
+50/tile_mode = 0
+50/occluder_offset = Vector2( 0, 0 )
+50/navigation_offset = Vector2( 0, 0 )
+50/shape_offset = Vector2( 0, 0 )
+50/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+50/shape_one_way = false
+50/shape_one_way_margin = 0.0
+50/shapes = [  ]
+50/z_index = 0
+51/name = "city.png 51"
+51/texture = ExtResource( 3 )
+51/tex_offset = Vector2( 0, 0 )
+51/modulate = Color( 1, 1, 1, 1 )
+51/region = Rect2( 387, 43, 43, 43 )
+51/tile_mode = 0
+51/occluder_offset = Vector2( 0, 0 )
+51/navigation_offset = Vector2( 0, 0 )
+51/shape_offset = Vector2( 0, 0 )
+51/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+51/shape_one_way = false
+51/shape_one_way_margin = 0.0
+51/shapes = [  ]
+51/z_index = 0
+52/name = "city.png 52"
+52/texture = ExtResource( 3 )
+52/tex_offset = Vector2( 0, 0 )
+52/modulate = Color( 1, 1, 1, 1 )
+52/region = Rect2( 344, 0, 43, 43 )
+52/tile_mode = 0
+52/occluder_offset = Vector2( 0, 0 )
+52/navigation_offset = Vector2( 0, 0 )
+52/shape_offset = Vector2( 0, 0 )
+52/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+52/shape_one_way = false
+52/shape_one_way_margin = 0.0
+52/shapes = [  ]
+52/z_index = 0
+53/name = "city.png 53"
+53/texture = ExtResource( 3 )
+53/tex_offset = Vector2( 0, 0 )
+53/modulate = Color( 1, 1, 1, 1 )
+53/region = Rect2( 172, 0, 43, 43 )
+53/tile_mode = 0
+53/occluder_offset = Vector2( 0, 0 )
+53/navigation_offset = Vector2( 0, 0 )
+53/shape_offset = Vector2( 0, 0 )
+53/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+53/shape_one_way = false
+53/shape_one_way_margin = 0.0
+53/shapes = [  ]
+53/z_index = 0
+54/name = "city.png 54"
+54/texture = ExtResource( 3 )
+54/tex_offset = Vector2( 0, 0 )
+54/modulate = Color( 1, 1, 1, 1 )
+54/region = Rect2( 430, 129, 43, 43 )
+54/tile_mode = 0
+54/occluder_offset = Vector2( 0, 0 )
+54/navigation_offset = Vector2( 0, 0 )
+54/shape_offset = Vector2( 0, 0 )
+54/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+54/shape_one_way = false
+54/shape_one_way_margin = 0.0
+54/shapes = [  ]
+54/z_index = 0
+55/name = "city.png 55"
+55/texture = ExtResource( 3 )
+55/tex_offset = Vector2( 0, 0 )
+55/modulate = Color( 1, 1, 1, 1 )
+55/region = Rect2( 430, 172, 43, 43 )
+55/tile_mode = 0
+55/occluder_offset = Vector2( 0, 0 )
+55/navigation_offset = Vector2( 0, 0 )
+55/shape_offset = Vector2( 0, 0 )
+55/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+55/shape_one_way = false
+55/shape_one_way_margin = 0.0
+55/shapes = [  ]
+55/z_index = 0
+56/name = "city.png 56"
+56/texture = ExtResource( 3 )
+56/tex_offset = Vector2( 0, 0 )
+56/modulate = Color( 1, 1, 1, 1 )
+56/region = Rect2( 387, 215, 43, 43 )
+56/tile_mode = 0
+56/occluder_offset = Vector2( 0, 0 )
+56/navigation_offset = Vector2( 0, 0 )
+56/shape_offset = Vector2( 0, 0 )
+56/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+56/shape_one_way = false
+56/shape_one_way_margin = 0.0
+56/shapes = [  ]
+56/z_index = 0
+57/name = "city.png 57"
+57/texture = ExtResource( 3 )
+57/tex_offset = Vector2( 0, 0 )
+57/modulate = Color( 1, 1, 1, 1 )
+57/region = Rect2( 430, 215, 43, 43 )
+57/tile_mode = 0
+57/occluder_offset = Vector2( 0, 0 )
+57/navigation_offset = Vector2( 0, 0 )
+57/shape_offset = Vector2( 0, 0 )
+57/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+57/shape_one_way = false
+57/shape_one_way_margin = 0.0
+57/shapes = [  ]
+57/z_index = 0
+58/name = "city.png 58"
+58/texture = ExtResource( 3 )
+58/tex_offset = Vector2( 0, 0 )
+58/modulate = Color( 1, 1, 1, 1 )
+58/region = Rect2( 215, 258, 43, 43 )
+58/tile_mode = 0
+58/occluder_offset = Vector2( 0, 0 )
+58/navigation_offset = Vector2( 0, 0 )
+58/shape_offset = Vector2( 0, 0 )
+58/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+58/shape_one_way = false
+58/shape_one_way_margin = 0.0
+58/shapes = [  ]
+58/z_index = 0
+59/name = "city.png 59"
+59/texture = ExtResource( 3 )
+59/tex_offset = Vector2( 0, 0 )
+59/modulate = Color( 1, 1, 1, 1 )
+59/region = Rect2( 258, 258, 43, 43 )
+59/tile_mode = 0
+59/occluder_offset = Vector2( 0, 0 )
+59/navigation_offset = Vector2( 0, 0 )
+59/shape_offset = Vector2( 0, 0 )
+59/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+59/shape_one_way = false
+59/shape_one_way_margin = 0.0
+59/shapes = [  ]
+59/z_index = 0
+60/name = "city.png 60"
+60/texture = ExtResource( 3 )
+60/tex_offset = Vector2( 0, 0 )
+60/modulate = Color( 1, 1, 1, 1 )
+60/region = Rect2( 258, 301, 43, 43 )
+60/tile_mode = 0
+60/occluder_offset = Vector2( 0, 0 )
+60/navigation_offset = Vector2( 0, 0 )
+60/shape_offset = Vector2( 0, 0 )
+60/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+60/shape_one_way = false
+60/shape_one_way_margin = 0.0
+60/shapes = [  ]
+60/z_index = 0
+61/name = "city.png 61"
+61/texture = ExtResource( 3 )
+61/tex_offset = Vector2( 0, 0 )
+61/modulate = Color( 1, 1, 1, 1 )
+61/region = Rect2( 215, 301, 43, 43 )
+61/tile_mode = 0
+61/occluder_offset = Vector2( 0, 0 )
+61/navigation_offset = Vector2( 0, 0 )
+61/shape_offset = Vector2( 0, 0 )
+61/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+61/shape_one_way = false
+61/shape_one_way_margin = 0.0
+61/shapes = [  ]
+61/z_index = 0
+62/name = "city.png 62"
+62/texture = ExtResource( 3 )
+62/tex_offset = Vector2( 0, 0 )
+62/modulate = Color( 1, 1, 1, 1 )
+62/region = Rect2( 301, 215, 43, 43 )
+62/tile_mode = 0
+62/occluder_offset = Vector2( 0, 0 )
+62/navigation_offset = Vector2( 0, 0 )
+62/shape_offset = Vector2( 0, 0 )
+62/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+62/shape_one_way = false
+62/shape_one_way_margin = 0.0
+62/shapes = [  ]
+62/z_index = 0
+63/name = "city.png 63"
+63/texture = ExtResource( 3 )
+63/tex_offset = Vector2( 0, 0 )
+63/modulate = Color( 1, 1, 1, 1 )
+63/region = Rect2( 344, 215, 43, 43 )
+63/tile_mode = 0
+63/occluder_offset = Vector2( 0, 0 )
+63/navigation_offset = Vector2( 0, 0 )
+63/shape_offset = Vector2( 0, 0 )
+63/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+63/shape_one_way = false
+63/shape_one_way_margin = 0.0
+63/shapes = [  ]
+63/z_index = 0
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -482.894, -118.708, 0, 0, 0, 0, -1387.82, -119.09, 0, 0, 0, 0, -2179.04, -118.47 )
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+bg_movement_speed = 100
+
+[node name="FadeIn" type="ColorRect" parent="."]
+margin_left = -18.0
+margin_top = -14.0
+margin_right = 1040.0
+margin_bottom = 616.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tick" type="Timer" parent="FadeIn"]
+wait_time = 0.1
+autostart = true
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 369.877, 241.494 )
+stream = ExtResource( 2 )
+
+[node name="Path2D" type="Path2D" parent="."]
+scale = Vector2( 2.16, 2.16 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( -0.150356, -0.00686646 )
+rotation = 0.00220964
+rotate = false
+
+[node name="BackgroundTileMap" type="TileMap" parent="Path2D/PathFollow2D"]
+visible = false
+position = Vector2( -545.924, -309.784 )
+rotation = -0.00220964
+tile_set = SubResource( 2 )
+cell_size = Vector2( 43, 43 )
+format = 1
+tile_data = PoolIntArray( -5, 5, 0, 65531, 5, 0, 65532, 5, 0, 0, 59, 0, 1, 45, 0, 2, 60, 0, 3, 45, 0, 4, 45, 0, 5, 60, 0, 6, 59, 0, 7, 6, 0, 8, 7, 0, 9, 2, 0, 10, 6, 0, 11, 7, 0, 12, 2, 0, 13, 46, 0, 14, 47, 0, 15, 50, 0, 16, 50, 0, 17, 50, 0, 18, 4, 0, 19, 6, 0, 20, 7, 0, 21, 2, 0, 22, 55, 0, 23, 61, 0, 131067, 5, 0, 131068, 5, 0, 131069, 5, 0, 65536, 45, 0, 65537, 60, 0, 65538, 45, 0, 65539, 45, 0, 65540, 59, 0, 65541, 45, 0, 65542, 60, 0, 65543, 6, 0, 65544, 7, 0, 65545, 2, 0, 65546, 6, 0, 65547, 0, 0, 65548, 20, 0, 65549, 62, 0, 65550, 20, 0, 65551, 20, 0, 65552, 20, 0, 65553, 62, 0, 65554, 20, 0, 65555, 20, 0, 65556, 0, 0, 65557, 2, 0, 65558, 55, 0, 65559, 61, 0, 131072, 48, 0, 131073, 8, 0, 131074, 48, 0, 131075, 45, 0, 131076, 60, 0, 131077, 45, 0, 131078, 45, 0, 131079, 6, 0, 131080, 7, 0, 131081, 2, 0, 131082, 6, 0, 131083, 7, 0, 131084, 15, 0, 131085, 62, 0, 131086, 1, 0, 131087, 1, 0, 131088, 1, 0, 131089, 62, 0, 131090, 1, 0, 131091, 14, 0, 131092, 7, 0, 131093, 2, 0, 131094, 44, 0, 131095, 61, 0, 196608, 50, 0, 196609, 43, 0, 196610, 49, 0, 196611, 60, 0, 196612, 45, 0, 196613, 45, 0, 196614, 45, 0, 196615, 6, 0, 196616, 7, 0, 196617, 12, 0, 196618, 13, 0, 196619, 7, 0, 196620, 2, 0, 196621, 44, 0, 196622, 31, 0, 196623, 40, 0, 196624, 30, 0, 196625, 51, 0, 196626, 57, 0, 196627, 6, 0, 196628, 7, 0, 196629, 2, 0, 196630, 44, 0, 196631, 61, 0, 262144, 51, 0, 262145, 51, 0, 262146, 51, 0, 262147, 57, 0, 262148, 31, 0, 262149, 26, 0, 262150, 10, 0, 262151, 6, 0, 262152, 21, 0, 262153, 20, 0, 262154, 20, 0, 262155, 0, 0, 262156, 2, 0, 262157, 31, 0, 262158, 26, 0, 262159, 41, 0, 262160, 39, 0, 262161, 45, 0, 262162, 55, 0, 262163, 6, 0, 262164, 7, 0, 262165, 2, 0, 262166, 55, 0, 262167, 44, 0, 327680, 47, 0, 327681, 47, 0, 327682, 46, 0, 327683, 55, 0, 327684, 53, 0, 327685, 3, 0, 327686, 4, 0, 327687, 17, 0, 327688, 1, 0, 327689, 1, 0, 327690, 14, 0, 327691, 7, 0, 327692, 2, 0, 327693, 26, 0, 327694, 41, 0, 327695, 9, 0, 327696, 39, 0, 327697, 60, 0, 327698, 55, 0, 327699, 6, 0, 327700, 7, 0, 327701, 2, 0, 327702, 44, 0, 327703, 61, 0, 393216, 16, 0, 393217, 16, 0, 393218, 18, 0, 393219, 55, 0, 393220, 53, 0, 393221, 3, 0, 393222, 3, 0, 393223, 3, 0, 393224, 8, 0, 393225, 8, 0, 393226, 6, 0, 393227, 7, 0, 393228, 2, 0, 393229, 3, 0, 393230, 3, 0, 393231, 3, 0, 393232, 39, 0, 393233, 45, 0, 393234, 8, 0, 393235, 63, 0, 393236, 63, 0, 393237, 63, 0, 393238, 8, 0, 393239, 61, 0, 458752, 20, 0, 458753, 0, 0, 458754, 2, 0, 458755, 44, 0, 458756, 53, 0, 458757, 4, 0, 458758, 3, 0, 458759, 9, 0, 458760, 48, 0, 458761, 8, 0, 458762, 6, 0, 458763, 7, 0, 458764, 2, 0, 458765, 3, 0, 458766, 4, 0, 458767, 3, 0, 458768, 39, 0, 458769, 45, 0, 458770, 55, 0, 458771, 6, 0, 458772, 7, 0, 458773, 2, 0, 458774, 44, 0, 458775, 44, 0, 524288, 14, 0, 524289, 7, 0, 524290, 2, 0, 524291, 44, 0, 524292, 36, 0, 524293, 3, 0, 524294, 3, 0, 524295, 3, 0, 524296, 50, 0, 524297, 43, 0, 524298, 6, 0, 524299, 7, 0, 524300, 2, 0, 524301, 10, 0, 524302, 3, 0, 524303, 4, 0, 524304, 39, 0, 524305, 51, 0, 524306, 54, 0, 524307, 6, 0, 524308, 7, 0, 524309, 2, 0, 524310, 44, 0, 524311, 61, 0, 589824, 63, 0, 589825, 63, 0, 589826, 63, 0, 589827, 44, 0, 589828, 3, 0, 589829, 3, 0, 589830, 49, 0, 589831, 4, 0, 589832, 49, 0, 589833, 49, 0, 589834, 6, 0, 589835, 7, 0, 589836, 2, 0, 589837, 3, 0, 589838, 3, 0, 589839, 4, 0, 589840, 39, 0, 589841, 46, 0, 589842, 47, 0, 589843, 6, 0, 589844, 7, 0, 589845, 2, 0, 589846, 44, 0, 589847, 44, 0, 655360, 13, 0, 655361, 0, 0, 655362, 12, 0, 655363, 16, 0, 655364, 16, 0, 655365, 16, 0, 655366, 62, 0, 655367, 16, 0, 655368, 16, 0, 655369, 16, 0, 655370, 13, 0, 655371, 7, 0, 655372, 12, 0, 655373, 16, 0, 655374, 16, 0, 655375, 16, 0, 655376, 16, 0, 655377, 62, 0, 655378, 16, 0, 655379, 13, 0, 655380, 7, 0, 655381, 2, 0, 655382, 55, 0, 655383, 44, 0, 720896, 20, 0, 720897, 0, 0, 720898, 20, 0, 720899, 20, 0, 720900, 20, 0, 720901, 20, 0, 720902, 62, 0, 720903, 20, 0, 720904, 20, 0, 720905, 20, 0, 720906, 20, 0, 720907, 0, 0, 720908, 20, 0, 720909, 20, 0, 720910, 20, 0, 720911, 20, 0, 720912, 20, 0, 720913, 62, 0, 720914, 20, 0, 720915, 20, 0, 720916, 22, 0, 720917, 2, 0, 720918, 55, 0, 720919, 58, 0, 786432, 1, 0, 786433, 1, 0, 786434, 1, 0, 786435, 1, 0, 786436, 1, 0, 786437, 1, 0, 786438, 62, 0, 786439, 1, 0, 786440, 1, 0, 786441, 1, 0, 786442, 14, 0, 786443, 7, 0, 786444, 15, 0, 786445, 1, 0, 786446, 1, 0, 786447, 1, 0, 786448, 1, 0, 786449, 62, 0, 786450, 1, 0, 786451, 1, 0, 786452, 1, 0, 786453, 11, 0, 786454, 44, 0, 786455, 61, 0, 851968, 51, 0, 851969, 51, 0, 851970, 51, 0, 851971, 51, 0, 851972, 51, 0, 851973, 51, 0, 851974, 51, 0, 851975, 51, 0, 851976, 51, 0, 851977, 51, 0, 851978, 6, 0, 851979, 7, 0, 851980, 2, 0, 851981, 51, 0, 851982, 51, 0, 851983, 51, 0, 851984, 51, 0, 851985, 51, 0, 851986, 51, 0, 851987, 51, 0, 851988, 51, 0, 851989, 51, 0, 851990, 54, 0, 851991, 44, 0 )
+
+[node name="Logotype" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 482.247, 118.794 )
+frames = SubResource( 3 )
+frame = 3
+playing = true
+
+[node name="Version" type="Label" parent="Logotype"]
+margin_left = -469.587
+margin_top = 458.617
+margin_right = -280.587
+margin_bottom = 495.617
+theme = ExtResource( 5 )
+text = "AZIE Games © 2021. v0
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LogoShow" type="Timer" parent="Logotype"]
+
+[node name="PathThatSlidesMenu" type="Path2D" parent="Logotype"]
+position = Vector2( 453, 103 )
+curve = SubResource( 4 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Logotype/PathThatSlidesMenu"]
+position = Vector2( -482.894, -118.708 )
+rotate = false
+loop = false
+
+[node name="PressToStart" type="Node2D" parent="Logotype/PathThatSlidesMenu/PathFollow2D"]
+
+[node name="Start" type="Button" parent="Logotype/PathThatSlidesMenu/PathFollow2D/PressToStart"]
+margin_left = -282.0
+margin_top = 270.0
+margin_right = 341.0
+margin_bottom = 317.0
+theme = ExtResource( 5 )
+text = "MM_PRESS_TO_START"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Boing" type="AudioStreamPlayer" parent="Logotype/PathThatSlidesMenu/PathFollow2D/PressToStart"]
+stream = ExtResource( 8 )
+
+[node name="Tick" type="Timer" parent="Logotype/PathThatSlidesMenu/PathFollow2D"]
+wait_time = 0.01
+
+[node name="MainMenuItself" type="Node2D" parent="Logotype/PathThatSlidesMenu/PathFollow2D"]
+position = Vector2( 796.24, 221.696 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself"]
+margin_left = -0.0632019
+margin_top = -0.357117
+margin_right = 286.937
+margin_bottom = 282.643
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGame" type="Button" parent="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer"]
+margin_right = 287.0
+margin_bottom = 37.0
+theme = ExtResource( 5 )
+text = "MM_NEW_GAME"
+
+[node name="Continue" type="Button" parent="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer"]
+margin_top = 41.0
+margin_right = 287.0
+margin_bottom = 78.0
+theme = ExtResource( 5 )
+text = "MM_CONTINUE"
+
+[node name="Settings" type="Button" parent="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer"]
+margin_top = 82.0
+margin_right = 287.0
+margin_bottom = 119.0
+theme = ExtResource( 5 )
+text = "MM_SETTINGS"
+
+[node name="Tick" type="Timer" parent="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer/Settings"]
+wait_time = 0.01
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself"]
+visible = false
+margin_left = -0.0632324
+margin_top = -64.3571
+margin_right = 286.937
+margin_bottom = 218.643
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SelectSavefileLabel" type="Label" parent="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer2"]
+margin_right = 287.0
+margin_bottom = 57.0
+theme = ExtResource( 5 )
+text = "блаблабла
+тут типа инструкции
+не смотрите сюды"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot1" type="Button" parent="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer2"]
+margin_top = 61.0
+margin_right = 287.0
+margin_bottom = 98.0
+theme = ExtResource( 5 )
+
+[node name="Slot2" type="Button" parent="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer2"]
+margin_top = 102.0
+margin_right = 287.0
+margin_bottom = 139.0
+theme = ExtResource( 5 )
+
+[node name="Slot3" type="Button" parent="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer2"]
+margin_top = 143.0
+margin_right = 287.0
+margin_bottom = 180.0
+theme = ExtResource( 5 )
+
+[node name="Back" type="Button" parent="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer2"]
+margin_top = 184.0
+margin_right = 287.0
+margin_bottom = 221.0
+theme = ExtResource( 5 )
+text = "GL_BACK"
+
+[node name="Settings" type="Node2D" parent="Logotype/PathThatSlidesMenu/PathFollow2D"]
+position = Vector2( 1631.57, 221.339 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Logotype/PathThatSlidesMenu/PathFollow2D/Settings"]
+margin_left = -0.0632019
+margin_top = -0.357117
+margin_right = 286.937
+margin_bottom = 282.643
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeLang" type="Button" parent="Logotype/PathThatSlidesMenu/PathFollow2D/Settings/VBoxContainer"]
+margin_right = 287.0
+margin_bottom = 37.0
+theme = ExtResource( 5 )
+text = "MM_SWITCH_LANG"
+
+[node name="Back" type="Button" parent="Logotype/PathThatSlidesMenu/PathFollow2D/Settings/VBoxContainer"]
+margin_top = 41.0
+margin_right = 287.0
+margin_bottom = 78.0
+theme = ExtResource( 5 )
+text = "GL_BACK"
+[connection signal="timeout" from="FadeIn/Tick" to="." method="_on_Tick_timeout"]
+[connection signal="timeout" from="Logotype/LogoShow" to="." method="_on_LogoShow_timeout"]
+[connection signal="pressed" from="Logotype/PathThatSlidesMenu/PathFollow2D/PressToStart/Start" to="." method="_on_Start_pressed"]
+[connection signal="timeout" from="Logotype/PathThatSlidesMenu/PathFollow2D/Tick" to="." method="_on_MainMenuTick_timeout"]
+[connection signal="pressed" from="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="timeout" from="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer/Settings/Tick" to="." method="_on_ToSettingsTick_timeout"]
+[connection signal="pressed" from="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer2/Slot1" to="." method="_on_Slot1_pressed"]
+[connection signal="pressed" from="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer2/Slot2" to="." method="_on_Slot2_pressed"]
+[connection signal="pressed" from="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer2/Slot3" to="." method="_on_Slot3_pressed"]
+[connection signal="pressed" from="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer2/Back" to="." method="_on_BackFromSlotChooser_pressed"]
+[connection signal="pressed" from="Logotype/PathThatSlidesMenu/PathFollow2D/Settings/VBoxContainer/ChangeLang" to="." method="_on_ChangeLang_pressed"]
+[connection signal="pressed" from="Logotype/PathThatSlidesMenu/PathFollow2D/Settings/VBoxContainer/Back" to="." method="_on_Back_pressed"]

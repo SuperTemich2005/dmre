@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/intro_boing.ogg-a540aae5abfc790762496590e8c3be6e.oggstr"
+
+[deps]
+
+source_file="res://music/fx/gui/intro_boing.ogg"
+dest_files=[ "res://.import/intro_boing.ogg-a540aae5abfc790762496590e8c3be6e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

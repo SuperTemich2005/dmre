@@ -1,0 +1,11 @@
+keys,en,uk,ru,ja
+GL_BACK,Return,Назад,Назад,戻る
+GL_DIAG_NEXT,Next,Далі,Далее,次
+MM_PRESS_TO_START,Press to start,"Натисніть, щоб розпочати","Нажмите, чтобы начать",おす始めろこと
+MM_NEW_GAME,New game,Нова гра,Новая игра,新着ゲーム
+MM_CONTINUE,Continue,Продовжити,Продолжить,継続する
+MM_SETTINGS,Settings,Налагодження,Настройки,設定
+MM_SWITCH_LANG,Switch language to: Russian,Змінити мову на: Англійська,Сменить язык на: Украинский,語お切り替える
+MM_SLOT,Slot,Комірка,Ячейка,スロット
+MM_SELECT_SLOT_NEWGAME,To which slot should savefile be written?,У котрій комірці створити новий файл?,В какой ячейке создать файл?,新着ゲームのスロットお選ぶ
+MM_SELECT_SLOT_CONTGAME,Select your savefile,Виберіть свій файл,Выберите свой файл,既存ゲームのスロットお選ぶ

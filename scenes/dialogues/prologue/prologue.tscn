@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://sprites/backgrounds/aintro_bg.jpg" type="Texture" id=1]
+[ext_resource path="res://scenes/gui/basic_dialogue.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/dialogues/prologue/prologue.gd" type="Script" id=3]
+[ext_resource path="res://scenes/characters/lenich.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/backgrounds/bogdan.png" type="Texture" id=5]
+[ext_resource path="res://sprites/backgrounds/bintro_bg.jpg" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Countryside",
+"speed": 5.0
+} ]
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -408.935, -48.5598, 0, 0, 0, 0, -104.991, -12.2554 )
+}
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Background" type="AnimatedSprite" parent="."]
+position = Vector2( 504.974, 318.185 )
+scale = Vector2( 0.995983, 0.995983 )
+frames = SubResource( 1 )
+
+[node name="Path2D" type="Path2D" parent="Background"]
+visible = false
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Background/Path2D"]
+position = Vector2( -408.935, -48.5598 )
+rotate = false
+
+[node name="Bogdan" type="AnimatedSprite" parent="Background/Path2D/PathFollow2D"]
+position = Vector2( 3.3772, 0.844238 )
+scale = Vector2( 1e-05, 1e-05 )
+frames = SubResource( 3 )
+
+[node name="Tick" type="Timer" parent="Background"]
+wait_time = 0.1
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Lenich" parent="Characters" instance=ExtResource( 4 )]
+visible = false
+
+[node name="DialogueSystem" parent="." instance=ExtResource( 2 )]
+[connection signal="timeout" from="Background/Tick" to="." method="_on_Tick_timeout"]
