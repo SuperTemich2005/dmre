@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://sprites/backgrounds/aintro2_bg.jpg" type="Texture" id=1]
+[ext_resource path="res://scenes/gui/basic_dialogue.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/dialogues/prologue/prologue2.gd" type="Script" id=3]
+[ext_resource path="res://scenes/characters/lenich.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/characters/fedor.tscn" type="PackedScene" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Background" type="AnimatedSprite" parent="."]
+position = Vector2( 511.52, 290.409 )
+scale = Vector2( 0.808466, 0.808466 )
+frames = SubResource( 1 )
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Lenich" parent="Characters" instance=ExtResource( 4 )]
+visible = false
+
+[node name="Fedor" parent="Characters" instance=ExtResource( 9 )]
+visible = false
+
+[node name="DialogueSystem" parent="." instance=ExtResource( 2 )]

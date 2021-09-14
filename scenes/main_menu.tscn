@@ -969,7 +969,7 @@ tile_data = PoolIntArray( -5, 5, 0, 65531, 5, 0, 65532, 5, 0, 0, 59, 0, 1, 45, 0
 visible = false
 position = Vector2( 482.247, 118.794 )
 frames = SubResource( 3 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="Version" type="Label" parent="Logotype"]
