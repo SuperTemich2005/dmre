@@ -8,16 +8,7 @@ extends Node2D
 var cur = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	match TranslationServer.get_locale():
-		"en":
-			get_parent().dialogue = get_parent().dialogue_en 
-			print("Switching dialogue language to english")
-		"ru":
-			get_parent().dialogue = get_parent().dialogue_ru
-			print("Switching dialogue language to russian")
-		"uk":
-			get_parent().dialogue = get_parent().dialogue_uk
-			print("Switching dialogue language to ukrainian")
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
