@@ -32,7 +32,9 @@ window/stretch/aspect="keep"
 
 translations=PoolStringArray( "res://locale/locales.en.translation", "res://locale/locales.ru.translation", "res://locale/locales.uk.translation" )
 translation_remaps={
-
+"res://sprites/logo.png": PoolStringArray( "res://sprites/logo_en.png:en", "res://sprites/logo_uk.png:uk" ),
+"res://sprites/logo2.png": PoolStringArray( "res://sprites/logo_uk2.png:uk", "res://sprites/logo_en2.png:en" ),
+"res://sprites/logo3.png": PoolStringArray( "res://sprites/logo_en3.png:en", "res://sprites/logo_uk3.png:uk" )
 }
 
 [rendering]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/meridian_breakin.ogg-12e304bcb48c79791b3eb809e605ee7f.oggstr"
+
+[deps]
+
+source_file="res://music/meridian_breakin.ogg"
+dest_files=[ "res://.import/meridian_breakin.ogg-12e304bcb48c79791b3eb809e605ee7f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

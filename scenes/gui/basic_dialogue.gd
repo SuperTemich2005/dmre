@@ -1,5 +1,5 @@
 extends Node2D
-
+signal nextbutton
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -42,6 +42,7 @@ func parser():
 				
 func _on_NextButton_pressed():
 	cur+=1
+	emit_signal("nextbutton")
 	parser()
 	
 

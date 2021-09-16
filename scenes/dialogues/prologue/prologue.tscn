@@ -22,14 +22,14 @@ animations = [ {
 "name": "BeforeMetro",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "InMetro",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "Countryside",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "InMetro",
 "speed": 5.0
 } ]
 
