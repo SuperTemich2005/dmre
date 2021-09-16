@@ -1,0 +1,128 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/characters/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://themes/default_theme.tres" type="Theme" id=2]
+[ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CameraRail" type="Path2D" parent="."]
+
+[node name="CameraRailFollow" type="PathFollow2D" parent="CameraRail"]
+position = Vector2( 1024, 0 )
+offset = 1024.45
+
+[node name="Camera2D" type="Camera2D" parent="CameraRail/CameraRailFollow"]
+position = Vector2( 508.542, 300.888 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="enemy_1" parent="Enemies" instance=ExtResource( 1 )]
+
+[node name="enemy_2" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 360, 0 )
+
+[node name="enemy_3" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 696, 0 )
+
+[node name="enemy_4" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 1027, 0 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LowerHalf" type="Node2D" parent="Control"]
+position = Vector2( 0, 480 )
+
+[node name="FightButtons" type="HBoxContainer" parent="Control/LowerHalf"]
+visible = false
+anchor_top = 0.853333
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 120.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Attack" type="Button" parent="Control/LowerHalf/FightButtons"]
+margin_left = 160.0
+margin_right = 360.0
+margin_bottom = 120.0
+custom_fonts/font = SubResource( 1 )
+text = "BAT_ATTACK"
+
+[node name="Info" type="Button" parent="Control/LowerHalf/FightButtons"]
+margin_left = 364.0
+margin_right = 528.0
+margin_bottom = 120.0
+custom_fonts/font = SubResource( 1 )
+text = "BAT_INFO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item" type="Button" parent="Control/LowerHalf/FightButtons"]
+margin_left = 532.0
+margin_right = 696.0
+margin_bottom = 120.0
+custom_fonts/font = SubResource( 1 )
+text = "BAT_ITEM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Flee" type="Button" parent="Control/LowerHalf/FightButtons"]
+margin_left = 700.0
+margin_right = 864.0
+margin_bottom = 120.0
+custom_fonts/font = SubResource( 1 )
+text = "BAT_FLEE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogue" type="ColorRect" parent="Control/LowerHalf"]
+visible = false
+margin_right = 1024.0
+margin_bottom = 120.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShowText" type="Label" parent="Control/LowerHalf/Dialogue"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1008.0
+margin_bottom = 104.0
+text = "Text here adfasdfasdfasdfasdfasdfasdfasdfaasdfasdfasText here adfasdfasdfasdfasdfasdfasdfasdfaasdfasdfasText here adfasdfasdfasdfasdfasdfasdfasdfaasdfasdfas"
+autowrap = true
+
+[node name="Button" type="Button" parent="Control/LowerHalf/Dialogue"]
+margin_left = 832.0
+margin_top = -56.0
+margin_right = 1017.0
+margin_bottom = -9.0
+text = "GL_DIAG_NEXT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AttackDialogue" type="ColorRect" parent="Control/LowerHalf"]
+margin_right = 1024.0
+margin_bottom = 120.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
