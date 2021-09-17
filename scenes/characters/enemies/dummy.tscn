@@ -4,21 +4,15 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "temich",
+"name": "default",
 "speed": 5.0
 } ]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 502.44, 303.248 )
-scale = Vector2( 0.432424, 0.432424 )
+position = Vector2( 536, 328 )
+scale = Vector2( 0.439394, 0.439394 )
 frames = SubResource( 1 )
-animation = "temich"
