@@ -5,11 +5,10 @@ var passed_party
 
 func _ready():
 	passed_enemies = [
-		"dummy|Dummy|20",
-		"dummy|Dummy|10",
-		"dummy|Dummy|30",
+		"dummy",
+		"dummy2",
 	]
 	passed_party = [
-		"temich|Temich|20",
-		"temich|Temich|10",
+		"dummy",
+		"dummy",
 	]

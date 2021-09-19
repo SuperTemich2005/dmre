@@ -1,10 +1,11 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://scenes/gui/battle.gd" type="Script" id=1]
 [ext_resource path="res://themes/default_theme.tres" type="Theme" id=2]
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://sprites/characters/temich/pfp.png" type="Texture" id=4]
 [ext_resource path="res://sprites/Notecarrier.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Chevron.png" type="Texture" id=6]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -31,16 +32,11 @@ border_width_right = 10
 border_width_bottom = 10
 border_color = Color( 1, 0, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.792157, 0, 0, 1 )
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color( 1, 0, 0, 1 )
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 3 )
 
 [sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.54902, 0, 0, 1 )
+bg_color = Color( 0.792157, 0, 0, 1 )
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
@@ -53,13 +49,21 @@ border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
+border_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.54902, 0, 0, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
 border_color = Color( 1, 0.415686, 0.415686, 1 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=9]
 font_data = ExtResource( 3 )
 
-[sub_resource type="Theme" id=9]
-default_font = SubResource( 8 )
+[sub_resource type="Theme" id=10]
+default_font = SubResource( 9 )
 BoxContainer/constants/separation = 4
 Button/colors/font_color = Color( 1, 1, 1, 1 )
 Button/colors/font_color_disabled = Color( 1, 1, 1, 1 )
@@ -71,9 +75,9 @@ Button/constants/hseparation = 2
 Button/fonts/font = null
 Button/styles/disabled = null
 Button/styles/focus = null
-Button/styles/hover = SubResource( 5 )
-Button/styles/normal = SubResource( 6 )
-Button/styles/pressed = SubResource( 7 )
+Button/styles/hover = SubResource( 6 )
+Button/styles/normal = SubResource( 7 )
+Button/styles/pressed = SubResource( 8 )
 CheckBox/colors/font_color = Color( 0, 0, 0, 1 )
 CheckBox/colors/font_color_disabled = Color( 0, 0, 0, 1 )
 CheckBox/colors/font_color_hover = Color( 0, 0, 0, 1 )
@@ -1244,7 +1248,7 @@ WindowDialog/icons/close = null
 WindowDialog/icons/close_highlight = null
 WindowDialog/styles/panel = null
 
-[sub_resource type="StyleBoxFlat" id=10]
+[sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0.266667, 0.862745, 0, 1 )
 border_width_left = 10
 border_width_top = 10
@@ -1252,7 +1256,7 @@ border_width_right = 10
 border_width_bottom = 10
 border_color = Color( 0.462745, 1, 0.45098, 1 )
 
-[sub_resource type="StyleBoxFlat" id=11]
+[sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 0.168627, 0.545098, 0, 1 )
 border_width_left = 10
 border_width_top = 10
@@ -1260,7 +1264,7 @@ border_width_right = 10
 border_width_bottom = 10
 border_color = Color( 0.462745, 1, 0.45098, 1 )
 
-[sub_resource type="StyleBoxFlat" id=12]
+[sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0.0313726, 0.54902, 0, 1 )
 border_width_left = 10
 border_width_top = 10
@@ -1268,15 +1272,15 @@ border_width_right = 10
 border_width_bottom = 10
 border_color = Color( 0.337255, 1, 0, 1 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=14]
 size = 72
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=15]
 size = 29
 font_data = ExtResource( 3 )
 
-[sub_resource type="SpriteFrames" id=15]
+[sub_resource type="SpriteFrames" id=16]
 animations = [ {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
@@ -1284,7 +1288,31 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="StyleBoxFlat" id=16]
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.670588, 0.670588, 0.670588, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.486275, 0.486275, 0.486275, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=19]
 bg_color = Color( 0, 0, 0, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -1296,13 +1324,13 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id=17]
+[sub_resource type="StyleBoxFlat" id=20]
 bg_color = Color( 0.698039, 0.686275, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=18]
+[sub_resource type="StyleBoxFlat" id=21]
 bg_color = Color( 0.096875, 0.1, 0, 1 )
 
-[sub_resource type="SpriteFrames" id=19]
+[sub_resource type="SpriteFrames" id=22]
 animations = [ {
 "frames": [  ],
 "loop": true,
@@ -1320,7 +1348,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="StyleBoxFlat" id=20]
+[sub_resource type="StyleBoxFlat" id=23]
 bg_color = Color( 0.792157, 0, 0, 1 )
 border_width_left = 10
 border_width_top = 10
@@ -1328,7 +1356,7 @@ border_width_right = 10
 border_width_bottom = 10
 border_color = Color( 1, 0, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=21]
+[sub_resource type="StyleBoxFlat" id=24]
 bg_color = Color( 0.54902, 0, 0, 1 )
 border_width_left = 10
 border_width_top = 10
@@ -1336,7 +1364,7 @@ border_width_right = 10
 border_width_bottom = 10
 border_color = Color( 1, 0, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=22]
+[sub_resource type="StyleBoxFlat" id=25]
 bg_color = Color( 0.54902, 0, 0, 1 )
 border_width_left = 10
 border_width_top = 10
@@ -1344,10 +1372,10 @@ border_width_right = 10
 border_width_bottom = 10
 border_color = Color( 1, 0.415686, 0.415686, 1 )
 
-[sub_resource type="StyleBoxFlat" id=23]
+[sub_resource type="StyleBoxFlat" id=26]
 bg_color = Color( 0.419608, 0, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=24]
+[sub_resource type="StyleBoxFlat" id=27]
 bg_color = Color( 1, 0, 0, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -1355,11 +1383,11 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color( 0.419608, 0, 0, 1 )
 
-[sub_resource type="DynamicFont" id=25]
+[sub_resource type="DynamicFont" id=28]
 font_data = ExtResource( 3 )
 
-[sub_resource type="Theme" id=26]
-default_font = SubResource( 25 )
+[sub_resource type="Theme" id=29]
+default_font = SubResource( 28 )
 BoxContainer/constants/separation = 4
 Button/colors/font_color = Color( 1, 1, 1, 1 )
 Button/colors/font_color_disabled = Color( 1, 1, 1, 1 )
@@ -1371,9 +1399,9 @@ Button/constants/hseparation = 2
 Button/fonts/font = null
 Button/styles/disabled = null
 Button/styles/focus = null
-Button/styles/hover = SubResource( 20 )
-Button/styles/normal = SubResource( 21 )
-Button/styles/pressed = SubResource( 22 )
+Button/styles/hover = SubResource( 23 )
+Button/styles/normal = SubResource( 24 )
+Button/styles/pressed = SubResource( 25 )
 CheckBox/colors/font_color = Color( 0, 0, 0, 1 )
 CheckBox/colors/font_color_disabled = Color( 0, 0, 0, 1 )
 CheckBox/colors/font_color_hover = Color( 0, 0, 0, 1 )
@@ -2358,8 +2386,8 @@ PopupPanel/styles/panel = null
 ProgressBar/colors/font_color = Color( 1, 1, 1, 1 )
 ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
 ProgressBar/fonts/font = null
-ProgressBar/styles/bg = SubResource( 23 )
-ProgressBar/styles/fg = SubResource( 24 )
+ProgressBar/styles/bg = SubResource( 26 )
+ProgressBar/styles/fg = SubResource( 27 )
 ProjectSettingsEditor/styles/panel = null
 RichTextLabel/colors/default_color = Color( 0, 0, 0, 1 )
 RichTextLabel/colors/font_color_selected = Color( 0, 0, 0, 1 )
@@ -2544,7 +2572,7 @@ WindowDialog/icons/close = null
 WindowDialog/icons/close_highlight = null
 WindowDialog/styles/panel = null
 
-[sub_resource type="StyleBoxFlat" id=27]
+[sub_resource type="StyleBoxFlat" id=30]
 bg_color = Color( 0.14902, 1, 0, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -2552,10 +2580,10 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color( 0.0392157, 0.419608, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=28]
+[sub_resource type="StyleBoxFlat" id=31]
 bg_color = Color( 0.0392157, 0.419608, 0, 1 )
 
-[sub_resource type="SpriteFrames" id=29]
+[sub_resource type="SpriteFrames" id=32]
 animations = [ {
 "frames": [  ],
 "loop": true,
@@ -2568,7 +2596,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="StyleBoxFlat" id=30]
+[sub_resource type="StyleBoxFlat" id=33]
 bg_color = Color( 0.913725, 0.937255, 0, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -2576,8 +2604,16 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color( 0.501961, 0.537255, 0.0705882, 1 )
 
-[sub_resource type="StyleBoxFlat" id=31]
+[sub_resource type="StyleBoxFlat" id=34]
 bg_color = Color( 0.462745, 0.501961, 0, 1 )
+
+[sub_resource type="SpriteFrames" id=35]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -2590,10 +2626,6 @@ script = ExtResource( 1 )
 curve = SubResource( 1 )
 
 [node name="CameraRailFollow" type="PathFollow2D" parent="CameraRail"]
-
-[node name="Camera2D" type="Camera2D" parent="CameraRail/CameraRailFollow"]
-position = Vector2( 508.542, 300.888 )
-current = true
 
 [node name="Control" type="Control" parent="CameraRail/CameraRailFollow"]
 margin_right = 1024.0
@@ -2716,39 +2748,43 @@ __meta__ = {
 }
 
 [node name="enemy_1" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector"]
+visible = false
 margin_left = 30.0
 margin_right = 140.0
 margin_bottom = 120.0
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 text = "Enemy"
 
 [node name="enemy_2" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector"]
+visible = false
 margin_left = 144.0
 margin_right = 254.0
 margin_bottom = 120.0
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 text = "Enemy"
 
 [node name="enemy_3" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector"]
+visible = false
 margin_left = 258.0
 margin_right = 368.0
 margin_bottom = 120.0
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 text = "Enemy"
 
 [node name="enemy_4" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector"]
+visible = false
 margin_left = 372.0
 margin_right = 482.0
 margin_bottom = 120.0
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 text = "Enemy"
 
 [node name="FriendSelector" type="HBoxContainer" parent="CameraRail/CameraRailFollow/Control/LowerHalf"]
@@ -2760,50 +2796,54 @@ margin_left = 512.0
 margin_top = 2.0
 margin_right = 1024.0
 margin_bottom = 122.0
-theme = SubResource( 9 )
+theme = SubResource( 10 )
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="friend_1" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector"]
+visible = false
 margin_left = 66.0
 margin_right = 158.0
 margin_bottom = 120.0
-custom_styles/hover = SubResource( 10 )
-custom_styles/pressed = SubResource( 11 )
-custom_styles/normal = SubResource( 12 )
-custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+custom_fonts/font = SubResource( 5 )
 text = "Test"
 
 [node name="friend_2" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector"]
+visible = false
 margin_left = 162.0
 margin_right = 254.0
 margin_bottom = 120.0
-custom_styles/hover = SubResource( 10 )
-custom_styles/pressed = SubResource( 11 )
-custom_styles/normal = SubResource( 12 )
-custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+custom_fonts/font = SubResource( 5 )
 text = "Test"
 
 [node name="friend_3" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector"]
+visible = false
 margin_left = 258.0
 margin_right = 350.0
 margin_bottom = 120.0
-custom_styles/hover = SubResource( 10 )
-custom_styles/pressed = SubResource( 11 )
-custom_styles/normal = SubResource( 12 )
-custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+custom_fonts/font = SubResource( 5 )
 text = "Test"
 
 [node name="friend_4" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector"]
+visible = false
 margin_left = 354.0
 margin_right = 446.0
 margin_bottom = 120.0
-custom_styles/hover = SubResource( 10 )
-custom_styles/pressed = SubResource( 11 )
-custom_styles/normal = SubResource( 12 )
-custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+custom_fonts/font = SubResource( 5 )
 text = "Test"
 
 [node name="Dialogue" type="ColorRect" parent="CameraRail/CameraRailFollow/Control/LowerHalf"]
@@ -2896,80 +2936,80 @@ __meta__ = {
 }
 
 [node name="C" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords"]
-margin_left = 148.0
-margin_right = 248.0
+margin_left = 288.0
+margin_right = 348.0
 margin_bottom = 125.0
-custom_fonts/font = SubResource( 13 )
-text = "C5"
+custom_fonts/font = SubResource( 14 )
+text = "C"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="D" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords"]
-margin_left = 252.0
-margin_right = 352.0
+margin_left = 352.0
+margin_right = 412.0
 margin_bottom = 125.0
-custom_fonts/font = SubResource( 13 )
-text = "D5"
+custom_fonts/font = SubResource( 14 )
+text = "D"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="E" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords"]
-margin_left = 356.0
-margin_right = 456.0
+margin_left = 416.0
+margin_right = 476.0
 margin_bottom = 125.0
-custom_fonts/font = SubResource( 13 )
-text = "E5"
+custom_fonts/font = SubResource( 14 )
+text = "E"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="F" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords"]
-margin_left = 460.0
-margin_right = 560.0
+margin_left = 480.0
+margin_right = 540.0
 margin_bottom = 125.0
-custom_fonts/font = SubResource( 13 )
-text = "F5"
+custom_fonts/font = SubResource( 14 )
+text = "F"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="G" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords"]
-margin_left = 564.0
-margin_right = 664.0
+margin_left = 544.0
+margin_right = 604.0
 margin_bottom = 125.0
-custom_fonts/font = SubResource( 13 )
-text = "G5"
+custom_fonts/font = SubResource( 14 )
+text = "G"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="A" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords"]
-margin_left = 668.0
-margin_right = 768.0
+margin_left = 608.0
+margin_right = 668.0
 margin_bottom = 125.0
-custom_fonts/font = SubResource( 13 )
-text = "A5"
+custom_fonts/font = SubResource( 14 )
+text = "A"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="B" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords"]
-margin_left = 772.0
-margin_right = 872.0
+margin_left = 672.0
+margin_right = 732.0
 margin_bottom = 125.0
-custom_fonts/font = SubResource( 13 )
-text = "B5"
+custom_fonts/font = SubResource( 14 )
+text = "B"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Tutorial" type="Label" parent="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector"]
-margin_left = 152.0
-margin_right = 872.0
+margin_left = 16.0
+margin_right = 1008.0
 margin_bottom = 32.0
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 15 )
 text = "BAT_HOWTO_CHORD"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2993,14 +3033,16 @@ __meta__ = {
 
 [node name="NoteCarrier" type="AnimatedSprite" parent="CameraRail/CameraRailFollow/Control/LowerHalf/OngakuCast"]
 position = Vector2( 448, 96 )
-frames = SubResource( 15 )
+frames = SubResource( 16 )
 
 [node name="С" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/OngakuCast"]
 margin_left = 136.0
 margin_top = 174.0
 margin_right = 191.0
 margin_bottom = 211.0
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/normal = SubResource( 19 )
 text = "  C  "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3011,7 +3053,9 @@ margin_left = 192.0
 margin_top = 158.0
 margin_right = 247.0
 margin_bottom = 195.0
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/normal = SubResource( 19 )
 text = "  D  "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3022,7 +3066,9 @@ margin_left = 136.0
 margin_top = 142.0
 margin_right = 191.0
 margin_bottom = 179.0
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/normal = SubResource( 19 )
 text = "  E  "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3033,7 +3079,9 @@ margin_left = 192.0
 margin_top = 124.0
 margin_right = 247.0
 margin_bottom = 161.0
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/normal = SubResource( 19 )
 text = "  F  "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3044,7 +3092,9 @@ margin_left = 136.0
 margin_top = 108.0
 margin_right = 191.0
 margin_bottom = 145.0
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/normal = SubResource( 19 )
 text = "  G  "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3055,7 +3105,9 @@ margin_left = 192.0
 margin_top = 90.0
 margin_right = 247.0
 margin_bottom = 127.0
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/normal = SubResource( 19 )
 text = "  A  "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3066,7 +3118,9 @@ margin_left = 136.0
 margin_top = 74.0
 margin_right = 191.0
 margin_bottom = 111.0
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/normal = SubResource( 19 )
 text = "  B  "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3077,8 +3131,10 @@ margin_left = 192.0
 margin_top = 56.0
 margin_right = 247.0
 margin_bottom = 93.0
-custom_styles/normal = SubResource( 16 )
-text = "  C  "
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/normal = SubResource( 19 )
+text = "  C2  "
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3179,7 +3235,6 @@ text = "GL_BACK"
 [node name="UpperHalf" type="Node2D" parent="CameraRail/CameraRailFollow/Control"]
 
 [node name="FriendUnit1" type="Panel" parent="CameraRail/CameraRailFollow/Control/UpperHalf"]
-visible = false
 modulate = Color( 1, 1, 1, 0.803922 )
 margin_right = 256.0
 margin_bottom = 64.0
@@ -3190,8 +3245,9 @@ __meta__ = {
 [node name="Charge" type="ProgressBar" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit1"]
 margin_right = 256.0
 margin_bottom = 64.0
-custom_styles/fg = SubResource( 17 )
-custom_styles/bg = SubResource( 18 )
+custom_styles/fg = SubResource( 20 )
+custom_styles/bg = SubResource( 21 )
+max_value = 1.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3200,7 +3256,7 @@ __meta__ = {
 [node name="Pic" type="AnimatedSprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit1"]
 position = Vector2( 32.134, 32.134 )
 scale = Vector2( 0.637321, 0.637321 )
-frames = SubResource( 19 )
+frames = SubResource( 22 )
 
 [node name="Name" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit1"]
 margin_left = 64.3725
@@ -3217,7 +3273,7 @@ margin_left = 64.0
 margin_top = 20.0
 margin_right = 242.0
 margin_bottom = 37.0
-theme = SubResource( 26 )
+theme = SubResource( 29 )
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3238,8 +3294,8 @@ margin_top = 41.0
 margin_right = 211.0
 margin_bottom = 60.0
 theme = ExtResource( 2 )
-custom_styles/fg = SubResource( 27 )
-custom_styles/bg = SubResource( 28 )
+custom_styles/fg = SubResource( 30 )
+custom_styles/bg = SubResource( 31 )
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3283,6 +3339,13 @@ margin_bottom = 17.0
 text = "0"
 align = 1
 
+[node name="SelectThis" type="TextureButton" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit1"]
+margin_right = 256.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="FriendUnit2" type="Panel" parent="CameraRail/CameraRailFollow/Control/UpperHalf"]
 visible = false
 modulate = Color( 1, 1, 1, 0.803922 )
@@ -3296,8 +3359,10 @@ __meta__ = {
 [node name="Charge" type="ProgressBar" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit2"]
 margin_right = 256.0
 margin_bottom = 64.0
-custom_styles/fg = SubResource( 17 )
-custom_styles/bg = SubResource( 18 )
+custom_styles/fg = SubResource( 20 )
+custom_styles/bg = SubResource( 21 )
+max_value = 1.0
+value = 1.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3306,7 +3371,7 @@ __meta__ = {
 [node name="Pic" type="AnimatedSprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit2"]
 position = Vector2( 32.134, 32.134 )
 scale = Vector2( 0.637321, 0.637321 )
-frames = SubResource( 19 )
+frames = SubResource( 22 )
 
 [node name="Name" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit2"]
 margin_left = 64.3725
@@ -3323,7 +3388,7 @@ margin_left = 64.0
 margin_top = 20.0
 margin_right = 242.0
 margin_bottom = 37.0
-theme = SubResource( 26 )
+theme = SubResource( 29 )
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3344,8 +3409,8 @@ margin_top = 41.0
 margin_right = 211.0
 margin_bottom = 60.0
 theme = ExtResource( 2 )
-custom_styles/fg = SubResource( 27 )
-custom_styles/bg = SubResource( 28 )
+custom_styles/fg = SubResource( 30 )
+custom_styles/bg = SubResource( 31 )
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3389,6 +3454,13 @@ margin_bottom = 17.0
 text = "0"
 align = 1
 
+[node name="SelectThis" type="TextureButton" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit2"]
+margin_right = 256.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="FriendUnit3" type="Panel" parent="CameraRail/CameraRailFollow/Control/UpperHalf"]
 visible = false
 modulate = Color( 1, 1, 1, 0.803922 )
@@ -3402,17 +3474,19 @@ __meta__ = {
 [node name="Charge" type="ProgressBar" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit3"]
 margin_right = 256.0
 margin_bottom = 64.0
-custom_styles/fg = SubResource( 17 )
-custom_styles/bg = SubResource( 18 )
+custom_styles/fg = SubResource( 20 )
+custom_styles/bg = SubResource( 21 )
+max_value = 1.0
+value = 1.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Pic" type="AnimatedSprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit3"]
-position = Vector2( 32, 32 )
-scale = Vector2( 0.64, 0.64 )
-frames = SubResource( 19 )
+position = Vector2( 32.134, 32.134 )
+scale = Vector2( 0.637321, 0.637321 )
+frames = SubResource( 22 )
 
 [node name="Name" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit3"]
 margin_left = 64.3725
@@ -3429,7 +3503,7 @@ margin_left = 64.0
 margin_top = 20.0
 margin_right = 242.0
 margin_bottom = 37.0
-theme = SubResource( 26 )
+theme = SubResource( 29 )
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3450,8 +3524,8 @@ margin_top = 41.0
 margin_right = 211.0
 margin_bottom = 60.0
 theme = ExtResource( 2 )
-custom_styles/fg = SubResource( 27 )
-custom_styles/bg = SubResource( 28 )
+custom_styles/fg = SubResource( 30 )
+custom_styles/bg = SubResource( 31 )
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3495,6 +3569,13 @@ margin_bottom = 17.0
 text = "0"
 align = 1
 
+[node name="SelectThis" type="TextureButton" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit3"]
+margin_right = 256.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="FriendUnit4" type="Panel" parent="CameraRail/CameraRailFollow/Control/UpperHalf"]
 visible = false
 modulate = Color( 1, 1, 1, 0.803922 )
@@ -3508,17 +3589,19 @@ __meta__ = {
 [node name="Charge" type="ProgressBar" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit4"]
 margin_right = 256.0
 margin_bottom = 64.0
-custom_styles/fg = SubResource( 17 )
-custom_styles/bg = SubResource( 18 )
+custom_styles/fg = SubResource( 20 )
+custom_styles/bg = SubResource( 21 )
+max_value = 1.0
+value = 1.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Pic" type="AnimatedSprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit4"]
-position = Vector2( 32, 32 )
-scale = Vector2( 0.64, 0.64 )
-frames = SubResource( 19 )
+position = Vector2( 32.134, 32.134 )
+scale = Vector2( 0.637321, 0.637321 )
+frames = SubResource( 22 )
 
 [node name="Name" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit4"]
 margin_left = 64.3725
@@ -3535,7 +3618,7 @@ margin_left = 64.0
 margin_top = 20.0
 margin_right = 242.0
 margin_bottom = 37.0
-theme = SubResource( 26 )
+theme = SubResource( 29 )
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3556,8 +3639,8 @@ margin_top = 41.0
 margin_right = 211.0
 margin_bottom = 60.0
 theme = ExtResource( 2 )
-custom_styles/fg = SubResource( 27 )
-custom_styles/bg = SubResource( 28 )
+custom_styles/fg = SubResource( 30 )
+custom_styles/bg = SubResource( 31 )
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3601,8 +3684,14 @@ margin_bottom = 17.0
 text = "0"
 align = 1
 
+[node name="SelectThis" type="TextureButton" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit4"]
+margin_right = 256.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="EnemyUnit1" type="Panel" parent="CameraRail/CameraRailFollow/Control/UpperHalf"]
-visible = false
 modulate = Color( 1, 1, 1, 0.803922 )
 margin_left = 768.0
 margin_right = 1024.0
@@ -3614,7 +3703,7 @@ __meta__ = {
 [node name="Pic" type="AnimatedSprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit1"]
 position = Vector2( 33, 33 )
 scale = Vector2( 0.66, 0.66 )
-frames = SubResource( 29 )
+frames = SubResource( 32 )
 
 [node name="Name" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit1"]
 margin_left = 64.373
@@ -3631,7 +3720,7 @@ margin_left = 64.0
 margin_top = 20.0
 margin_right = 242.0
 margin_bottom = 37.0
-theme = SubResource( 26 )
+theme = SubResource( 29 )
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3651,9 +3740,10 @@ margin_left = 64.0
 margin_top = 43.0
 margin_right = 242.0
 margin_bottom = 60.0
-theme = SubResource( 26 )
-custom_styles/fg = SubResource( 30 )
-custom_styles/bg = SubResource( 31 )
+theme = SubResource( 29 )
+custom_styles/fg = SubResource( 33 )
+custom_styles/bg = SubResource( 34 )
+max_value = 1.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3673,7 +3763,7 @@ __meta__ = {
 [node name="Pic" type="AnimatedSprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit2"]
 position = Vector2( 33, 33 )
 scale = Vector2( 0.66, 0.66 )
-frames = SubResource( 29 )
+frames = SubResource( 32 )
 
 [node name="Name" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit2"]
 margin_left = 64.373
@@ -3690,7 +3780,7 @@ margin_left = 64.0
 margin_top = 20.0
 margin_right = 242.0
 margin_bottom = 37.0
-theme = SubResource( 26 )
+theme = SubResource( 29 )
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3710,9 +3800,10 @@ margin_left = 64.0
 margin_top = 43.0
 margin_right = 242.0
 margin_bottom = 60.0
-theme = SubResource( 26 )
-custom_styles/fg = SubResource( 30 )
-custom_styles/bg = SubResource( 31 )
+theme = SubResource( 29 )
+custom_styles/fg = SubResource( 33 )
+custom_styles/bg = SubResource( 34 )
+max_value = 1.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3732,7 +3823,7 @@ __meta__ = {
 [node name="Pic" type="AnimatedSprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit3"]
 position = Vector2( 33, 33 )
 scale = Vector2( 0.66, 0.66 )
-frames = SubResource( 29 )
+frames = SubResource( 32 )
 
 [node name="Name" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit3"]
 margin_left = 64.373
@@ -3749,7 +3840,7 @@ margin_left = 64.0
 margin_top = 20.0
 margin_right = 242.0
 margin_bottom = 37.0
-theme = SubResource( 26 )
+theme = SubResource( 29 )
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3769,9 +3860,10 @@ margin_left = 64.0
 margin_top = 43.0
 margin_right = 242.0
 margin_bottom = 60.0
-theme = SubResource( 26 )
-custom_styles/fg = SubResource( 30 )
-custom_styles/bg = SubResource( 31 )
+theme = SubResource( 29 )
+custom_styles/fg = SubResource( 33 )
+custom_styles/bg = SubResource( 34 )
+max_value = 1.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3791,7 +3883,7 @@ __meta__ = {
 [node name="Pic" type="AnimatedSprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit4"]
 position = Vector2( 33, 33 )
 scale = Vector2( 0.66, 0.66 )
-frames = SubResource( 29 )
+frames = SubResource( 32 )
 
 [node name="Name" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit4"]
 margin_left = 64.373
@@ -3808,7 +3900,7 @@ margin_left = 64.0
 margin_top = 20.0
 margin_right = 242.0
 margin_bottom = 37.0
-theme = SubResource( 26 )
+theme = SubResource( 29 )
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3828,9 +3920,10 @@ margin_left = 64.0
 margin_top = 43.0
 margin_right = 242.0
 margin_bottom = 60.0
-theme = SubResource( 26 )
-custom_styles/fg = SubResource( 30 )
-custom_styles/bg = SubResource( 31 )
+theme = SubResource( 29 )
+custom_styles/fg = SubResource( 33 )
+custom_styles/bg = SubResource( 34 )
+max_value = 1.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3844,3 +3937,43 @@ text = "BAT_TURNAROUND"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CameraTurnTick" type="Timer" parent="CameraRail/CameraRailFollow/Control/TurnCamera"]
+wait_time = 0.01
+
+[node name="Camera2D" type="Camera2D" parent="CameraRail/CameraRailFollow"]
+anchor_mode = 0
+current = true
+
+[node name="Chevron" type="AnimatedSprite" parent="."]
+position = Vector2( -160, 64 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 35 )
+
+[node name="GlobalTick" type="Timer" parent="."]
+wait_time = 0.01
+autostart = true
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/FightButtons/Attack" to="." method="_on_Attack_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/AttackOptions/OngakuCast" to="." method="_on_OngakuCast_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/AttackOptions/ChordCast" to="." method="_on_ChordCast_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/AttackOptions/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector/enemy_1" to="." method="_on_entity_selector_button_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector/enemy_2" to="." method="_on_entity_selector_button_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector/enemy_3" to="." method="_on_entity_selector_button_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector/enemy_4" to="." method="_on_entity_selector_button_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector/friend_1" to="." method="_on_entity_selector_button_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector/friend_2" to="." method="_on_entity_selector_button_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector/friend_3" to="." method="_on_entity_selector_button_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector/friend_4" to="." method="_on_entity_selector_button_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords/C" to="." method="_on_chordbutton_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords/D" to="." method="_on_chordbutton_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords/E" to="." method="_on_chordbutton_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords/F" to="." method="_on_chordbutton_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords/G" to="." method="_on_chordbutton_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords/A" to="." method="_on_chordbutton_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords/B" to="." method="_on_chordbutton_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/OngakuCast/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/TurnCamera" to="." method="_on_TurnCamera_pressed"]
+[connection signal="timeout" from="CameraRail/CameraRailFollow/Control/TurnCamera/CameraTurnTick" to="." method="_on_CameraTurnTick_timeout"]
+[connection signal="timeout" from="GlobalTick" to="." method="_on_GlobalTick_timeout"]

@@ -13,6 +13,7 @@ var slot_choose_mode = false
 onready var params = $"/root/Params"
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	seed(OS.get_unix_time())
 	for i in range(1,4):
 		get_node("Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer2/Slot"+str(i)).text = (tr("MM_SLOT")+" "+str(i))
 	TranslationServer.set_locale("ru")

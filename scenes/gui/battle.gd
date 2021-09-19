@@ -6,24 +6,36 @@ extends Node2D
 # var b = "text"
 
 
-var enemies
-var enemy_nodes : Array
-var party
-var party_nodes : Array
+var enemies # Массив для хранения врагов
+var enemy_nodes : Array # Массив для хранения нод врагов
+var party # Массив для хранения ГГ
+var party_nodes : Array # И их нод
+var current_char
+var current_char_id
+var camera_pos = 0 # Позиция камеры 0-1.0
+var camera_direction = true # Направление камеры. true = вправо
+var targeted_entity
+var targeted_entity_id
+var rng = RandomNumberGenerator.new()
 func _ready():
 	enemies = $"/root/Params".passed_enemies
 	party = $"/root/Params".passed_party
+	# СОЗДАНИЕ ВРАГОВ ----------------------------------------------------------
 	for i in range(0,enemies.size()):
 		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit"+str(i+1)).show()
 		enemy_nodes.append(load("res://scenes/characters/enemies/"+enemies[i].split("|")[0]+".tscn").instance())
 		add_child_below_node($Enemies,enemy_nodes[i])
 		print("Added node ",enemy_nodes[i]," called ",enemies[i].split("|")[0]," as enemy #",str(i))
-		enemy_nodes[i].position = Vector2(1024/2*i,0)
+		enemy_nodes[i].position = Vector2(1280/enemies.size()*i,0)
 		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit"+str(i+1)+"/Pic").animation = enemies[i].split("|")[0]
-		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit"+str(i+1)+"/Name").text = enemies[i].split("|")[1]
-		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit"+str(i+1)+"/HP").set_max(float(enemies[i].split("|")[2]))
-		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit"+str(i+1)+"/HP").set_value(float(enemies[i].split("|")[2]))
-		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit"+str(i+1)+"/HP/Label").text = enemies[i].split("|")[2]+"/"+enemies[i].split("|")[2]
+		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit"+str(i+1)+"/Name").text = enemy_nodes[i].entity_name
+		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit"+str(i+1)+"/HP").set_max(float(enemy_nodes[i].maxhealth))
+		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit"+str(i+1)+"/HP").set_value(float(enemy_nodes[i].maxhealth))
+		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit"+str(i+1)+"/HP/Label").text = str(enemy_nodes[i].maxhealth)+"/"+str(enemy_nodes[i].maxhealth)
+		get_node("CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector/enemy_"+str(i+1)).text = enemy_nodes[i].entity_name
+		if get_node("CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector/enemy_"+str(i+1)).text != "":
+			get_node("CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector/enemy_"+str(i+1)).show()
+	# СОЗДАНИЕ ГЛАВНЫХ ГЕРОЕВ --------------------------------------------------
 	for i in range(0,party.size()):
 		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit"+str(i+1)).show()
 		party_nodes.append(load("res://scenes/characters/party_members/"+party[i].split("|")[0]+".tscn").instance())
@@ -31,11 +43,138 @@ func _ready():
 		print("Added node ",party_nodes[i]," called ",party[i].split("|")[0]," as party member #",str(i))
 		party_nodes[i].position = Vector2(1024/4*i,0)
 		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit"+str(i+1)+"/Pic").animation = party[i].split("|")[0]
-		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit"+str(i+1)+"/Name").text = party[i].split("|")[1]
-		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit"+str(i+1)+"/HP").set_max(float(party[i].split("|")[2]))
-		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit"+str(i+1)+"/HP").set_value(float(party[i].split("|")[2]))
-		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit"+str(i+1)+"/HP/Label").text = party[i].split("|")[2]+"/"+party[i].split("|")[2]		
+		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit"+str(i+1)+"/Name").text = party_nodes[i].entity_name
+		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit"+str(i+1)+"/HP").set_max(float(party_nodes[i].maxhealth))
+		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit"+str(i+1)+"/HP").set_value(float(party_nodes[i].maxhealth))
+		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit"+str(i+1)+"/HP/Label").text = str(party_nodes[i].maxhealth)+"/"+str(party_nodes[i].maxhealth)
+		get_node("CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector/friend_"+str(i+1)).text = party_nodes[i].entity_name
+		if get_node("CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector/friend_"+str(i+1)).text != "":
+			get_node("CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector/friend_"+str(i+1)).show()
+	current_char = party_nodes[0]
+	targeted_entity = enemy_nodes[0]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+# УТИЛИТЫ ----------------------------------------------------------------------
+func chord_to_id(chord):
+	match chord:
+		"A":
+			return 0
+		"B":
+			return 1
+		"C":
+			return 2
+		"D":
+			return 3
+		"E":
+			return 4
+		"F":
+			return 5
+		"G":
+			return 6
+
+
+func _on_entity_selector_button_pressed():
+	for i in range(0,$CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector.get_children().size()):
+		if $CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector.get_children()[i].pressed:
+			for k in range(0,enemy_nodes.size()):
+				if enemy_nodes[k].entity_name == $CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector.get_children()[i].text:
+					targeted_entity = enemy_nodes[k]
+					targeted_entity_id = k+1
+					$Chevron.position = Vector2(targeted_entity.sprite.position.x,64)
+					print("Selecting enemy ",targeted_entity," self-named ",targeted_entity.entity_name," under ID of ",targeted_entity_id)
+					break
+	for i in range(0,$CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector.get_children().size()):
+		if $CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector.get_children()[i].pressed:
+			for k in range(0,party_nodes.size()):
+				if party_nodes[k].entity_name == $CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector.get_children()[i].text:
+					targeted_entity = party_nodes[k]
+					targeted_entity_id = k+1
+					#$Chevron.position = Vector2(targeted_entity.sprite.position.x,64)
+					print("Selecting party member ",targeted_entity," self-named ",targeted_entity.entity_name," under ID of ",targeted_entity_id)
+					break
+
+
+# АТАКА ------------------------------------------------------------------------
+func _on_Attack_pressed():
+	$CameraRail/CameraRailFollow/Control/LowerHalf/FightButtons.hide()
+	$CameraRail/CameraRailFollow/Control/LowerHalf/AttackOptions.show()
+
+
+func _on_Back_pressed():
+	$CameraRail/CameraRailFollow/Control/LowerHalf/AttackOptions.hide()
+	$CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector.hide()
+	$CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector.hide()
+	$CameraRail/CameraRailFollow/Control/LowerHalf/Dialogue.hide()
+	$CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector.hide()
+	$CameraRail/CameraRailFollow/Control/LowerHalf/OngakuCast.hide()
+	$CameraRail/CameraRailFollow/Control/LowerHalf/FightButtons.show()
+
+
+func _on_OngakuCast_pressed():
+	$CameraRail/CameraRailFollow/Control/LowerHalf/AttackOptions.hide()
+	$CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector.show()
+	$CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector.show()
+	$CameraRail/CameraRailFollow/Control/LowerHalf/OngakuCast.show()
+
+
+func _on_ChordCast_pressed():
+	$CameraRail/CameraRailFollow/Control/LowerHalf/AttackOptions.hide()
+	$CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector.show()
+	$CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector.show()
+	$CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector.show()
+
+
+func _on_chordbutton_pressed():
+	var played_chord 
+	for i in range(0,$CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords.get_children().size()):
+		if $CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords.get_children()[i].pressed:
+			played_chord = chord_to_id($CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords.get_children()[i].text.left(1))
+			print("Playing chord ",$CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords.get_children()[i].text," with ID of ",played_chord)
+			print("Attacking ",targeted_entity.entity_name)
+			print("Target's resonance ID: ",chord_to_id(targeted_entity.resonance))
+			print("Dealt ",(current_char.base_damage+current_char.power_damage*int($CameraRail/CameraRailFollow/Control/LowerHalf/AttackOptions/PowerCast.pressed))/(1+abs(played_chord-chord_to_id(targeted_entity.resonance))))
+			targeted_entity.health -= (current_char.base_damage+current_char.power_damage*int($CameraRail/CameraRailFollow/Control/LowerHalf/AttackOptions/PowerCast.pressed))/(1+abs(played_chord-chord_to_id(targeted_entity.resonance)))
+			print(targeted_entity.health)
+			get_node("CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit"+str(targeted_entity_id)+"/HP").set_value(targeted_entity.health)
+			get_node("CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit"+str(targeted_entity_id)+"/HP/Label").text = str(targeted_entity.health)+"/"+str(targeted_entity.maxhealth)
+			
+# КАМЕРЫ -----------------------------------------------------------------------
+func _on_TurnCamera_pressed():
+	$CameraRail/CameraRailFollow/Control/TurnCamera/CameraTurnTick.start()
+	camera_direction = !camera_direction
+
+
+func _on_CameraTurnTick_timeout():
+	if camera_direction:
+		camera_pos -= 0.01
+		if camera_pos > 0:
+			$CameraRail/CameraRailFollow.set_unit_offset(camera_pos)
+		else:
+			$CameraRail/CameraRailFollow/Control/TurnCamera/CameraTurnTick.stop()
+	else:
+		camera_pos += 0.01
+		if camera_pos < 1:
+			$CameraRail/CameraRailFollow.set_unit_offset(camera_pos)
+		else:
+			$CameraRail/CameraRailFollow/Control/TurnCamera/CameraTurnTick.stop()
+
+
+func _on_GlobalTick_timeout():
+	$GlobalTick.start()
+	for i in range(enemy_nodes.size()):
+		enemy_nodes[i].charge = clamp(enemy_nodes[i].charge+enemy_nodes[i].recharge_rate,0,1)
+		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit"+str(i+1)+"/Charge").value = enemy_nodes[i].charge
+		if enemy_nodes[i].charge == 1:
+			enemy_nodes[i].attacks(rng.randi_range(1,5))
+			enemy_nodes[i].charge = 0
+	for i in range(party_nodes.size()):
+		party_nodes[i].charge = clamp(party_nodes[i].charge+party_nodes[i].recharge_rate,0,1)
+		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit"+str(i+1)+"/Charge").value = party_nodes[i].charge
+		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit"+str(i+1)+"/HP").value = party_nodes[i].health
+		get_node("CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit"+str(i+1)+"/HP/Label").text = str(party_nodes[i].health)+"/"+str(party_nodes[i].maxhealth)
+		if party_nodes[i].charge == 1:
+			party_nodes[i].can_attack = true
