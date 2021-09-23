@@ -5,7 +5,7 @@ var maxhealth = 20
 var evasion = 0.2
 var entity_name = "Dummy 2"
 var resonance = "C"
-var recharge_rate = 0.005
+var recharge_rate = 0.01
 var can_attack = true
 var charge = 0
 var target
