@@ -11,3 +11,4 @@ var insp = 5
 var insp_max = 5
 var entity_name = "Dummy Friend"
 var resonance = "C"
+onready var sprite = $Sprite

@@ -10,6 +10,8 @@ var charge = 0
 var target
 var rng = RandomNumberGenerator.new()
 var base_damage = 1
+var description = """Debug hostile entity that doesn't appear in game, unless something weird happens\n
+		Uses Temich's sprite because I don't want to spend time on drawing sprites nobody would ever see."""
 onready var sprite = $Sprite
 
 var attack_names = [

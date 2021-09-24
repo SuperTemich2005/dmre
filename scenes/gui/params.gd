@@ -7,6 +7,7 @@ func _ready():
 	passed_enemies = [
 		"dummy",
 		"dummy2",
+		"dummy",
 	]
 	passed_party = [
 		"dummy",
