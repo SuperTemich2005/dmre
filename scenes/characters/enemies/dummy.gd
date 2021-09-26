@@ -27,4 +27,4 @@ func attacks(id):
 	match id:
 		_:
 			print("1. Attacking ",target)
-			target.health -= base_damage + rng.randi_range(1,3)
+			target.health = clamp(target.health-base_damage-rng.randi_range(1,3),0,target.maxhealth)

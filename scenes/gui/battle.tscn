@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://scenes/gui/battle.gd" type="Script" id=1]
 [ext_resource path="res://themes/default_theme.tres" type="Theme" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://sprites/notification_icons/info.png" type="Texture" id=8]
 [ext_resource path="res://sprites/notification_icons/get_rekt.png" type="Texture" id=9]
 [ext_resource path="res://sprites/notification_icons/attention.png" type="Texture" id=10]
+[ext_resource path="res://music/battle1.ogg" type="AudioStream" id=11]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -2587,7 +2588,31 @@ border_color = Color( 0.0392157, 0.419608, 0, 1 )
 [sub_resource type="StyleBoxFlat" id=31]
 bg_color = Color( 0.0392157, 0.419608, 0, 1 )
 
-[sub_resource type="SpriteFrames" id=32]
+[sub_resource type="StyleBoxFlat" id=32]
+bg_color = Color( 1, 1, 1, 0 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0, 1, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=33]
+bg_color = Color( 1, 1, 1, 0 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 1, 0.960784, 0.341176, 1 )
+
+[sub_resource type="StyleBoxFlat" id=34]
+bg_color = Color( 1, 1, 1, 0 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="SpriteFrames" id=35]
 animations = [ {
 "frames": [  ],
 "loop": true,
@@ -2600,7 +2625,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="StyleBoxFlat" id=33]
+[sub_resource type="StyleBoxFlat" id=36]
 bg_color = Color( 0.913725, 0.937255, 0, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -2608,18 +2633,10 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color( 0.501961, 0.537255, 0.0705882, 1 )
 
-[sub_resource type="StyleBoxFlat" id=34]
+[sub_resource type="StyleBoxFlat" id=37]
 bg_color = Color( 0.462745, 0.501961, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=36]
-bg_color = Color( 1, 1, 1, 1 )
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color( 0, 0.760784, 1, 1 )
-
-[sub_resource type="SpriteFrames" id=37]
+[sub_resource type="SpriteFrames" id=38]
 animations = [ {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
@@ -2637,10 +2654,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=38]
+[sub_resource type="DynamicFont" id=39]
 font_data = ExtResource( 3 )
 
-[sub_resource type="SpriteFrames" id=35]
+[sub_resource type="SpriteFrames" id=40]
 animations = [ {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
@@ -2674,7 +2691,6 @@ __meta__ = {
 position = Vector2( 0, 480 )
 
 [node name="FightButtons" type="HBoxContainer" parent="CameraRail/CameraRailFollow/Control/LowerHalf"]
-visible = false
 anchor_top = 0.853333
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2771,7 +2787,47 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Skills" type="HBoxContainer" parent="CameraRail/CameraRailFollow/Control/LowerHalf"]
+visible = false
+margin_right = 1024.0
+margin_bottom = 120.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Skill1" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/Skills"]
+margin_left = 427.0
+margin_right = 447.0
+margin_bottom = 120.0
+
+[node name="Skill2" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/Skills"]
+visible = false
+margin_left = 415.0
+margin_right = 435.0
+margin_bottom = 120.0
+
+[node name="Skill3" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/Skills"]
+visible = false
+margin_left = 439.0
+margin_right = 459.0
+margin_bottom = 120.0
+
+[node name="Skill4" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/Skills"]
+visible = false
+margin_left = 463.0
+margin_right = 483.0
+margin_bottom = 120.0
+
+[node name="Back" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/Skills"]
+margin_left = 451.0
+margin_right = 597.0
+margin_bottom = 120.0
+custom_fonts/font = SubResource( 2 )
+text = "GL_BACK"
+
 [node name="ActionOptions" type="HBoxContainer" parent="CameraRail/CameraRailFollow/Control/LowerHalf"]
+visible = false
 anchor_top = 0.853333
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2818,6 +2874,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CheckButtons" type="HBoxContainer" parent="CameraRail/CameraRailFollow/Control/LowerHalf"]
+visible = false
+margin_left = 64.0
+margin_top = -96.0
+margin_right = 960.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/CheckButtons"]
+margin_left = 406.0
+margin_right = 489.0
+margin_bottom = 96.0
+custom_fonts/font = SubResource( 2 )
+text = "GL_BACK"
+
 [node name="EnemySelector" type="HBoxContainer" parent="CameraRail/CameraRailFollow/Control/LowerHalf"]
 visible = false
 anchor_top = 0.853333
@@ -2831,9 +2904,8 @@ __meta__ = {
 }
 
 [node name="enemy_1" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector"]
-visible = false
-margin_left = 30.0
-margin_right = 140.0
+margin_left = 223.0
+margin_right = 288.0
 margin_bottom = 120.0
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
@@ -2886,9 +2958,8 @@ __meta__ = {
 }
 
 [node name="friend_1" type="Button" parent="CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector"]
-visible = false
-margin_left = 66.0
-margin_right = 158.0
+margin_left = 228.0
+margin_right = 284.0
 margin_bottom = 120.0
 custom_styles/hover = SubResource( 11 )
 custom_styles/pressed = SubResource( 12 )
@@ -3422,14 +3493,18 @@ margin_bottom = 17.0
 text = "0"
 align = 1
 
-[node name="SelectThis" type="TextureButton" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit1"]
+[node name="SelectThis" type="Button" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit1"]
 margin_right = 256.0
 margin_bottom = 64.0
+custom_styles/hover = SubResource( 32 )
+custom_styles/pressed = SubResource( 33 )
+custom_styles/normal = SubResource( 34 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="FriendUnit2" type="Panel" parent="CameraRail/CameraRailFollow/Control/UpperHalf"]
+visible = false
 modulate = Color( 1, 1, 1, 0.803922 )
 margin_top = 64.0
 margin_right = 256.0
@@ -3535,15 +3610,22 @@ margin_right = 27.0
 margin_bottom = 17.0
 text = "0"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="SelectThis" type="TextureButton" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit2"]
+[node name="SelectThis" type="Button" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit2"]
 margin_right = 256.0
 margin_bottom = 64.0
+custom_styles/hover = SubResource( 32 )
+custom_styles/pressed = SubResource( 33 )
+custom_styles/normal = SubResource( 34 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="FriendUnit3" type="Panel" parent="CameraRail/CameraRailFollow/Control/UpperHalf"]
+visible = false
 modulate = Color( 1, 1, 1, 0.803922 )
 margin_top = 128.0
 margin_right = 256.0
@@ -3649,15 +3731,22 @@ margin_right = 27.0
 margin_bottom = 17.0
 text = "0"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="SelectThis" type="TextureButton" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit3"]
+[node name="SelectThis" type="Button" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit3"]
 margin_right = 256.0
 margin_bottom = 64.0
+custom_styles/hover = SubResource( 32 )
+custom_styles/pressed = SubResource( 33 )
+custom_styles/normal = SubResource( 34 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="FriendUnit4" type="Panel" parent="CameraRail/CameraRailFollow/Control/UpperHalf"]
+visible = false
 modulate = Color( 1, 1, 1, 0.803922 )
 margin_top = 192.0
 margin_right = 256.0
@@ -3763,10 +3852,16 @@ margin_right = 27.0
 margin_bottom = 17.0
 text = "0"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="SelectThis" type="TextureButton" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit4"]
+[node name="SelectThis" type="Button" parent="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit4"]
 margin_right = 256.0
 margin_bottom = 64.0
+custom_styles/hover = SubResource( 32 )
+custom_styles/pressed = SubResource( 33 )
+custom_styles/normal = SubResource( 34 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3783,7 +3878,7 @@ __meta__ = {
 [node name="Pic" type="AnimatedSprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit1"]
 position = Vector2( 33, 33 )
 scale = Vector2( 0.66, 0.66 )
-frames = SubResource( 32 )
+frames = SubResource( 35 )
 
 [node name="Name" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit1"]
 margin_left = 64.373
@@ -3821,8 +3916,8 @@ margin_top = 43.0
 margin_right = 242.0
 margin_bottom = 60.0
 theme = SubResource( 29 )
-custom_styles/fg = SubResource( 33 )
-custom_styles/bg = SubResource( 34 )
+custom_styles/fg = SubResource( 36 )
+custom_styles/bg = SubResource( 37 )
 max_value = 1.0
 percent_visible = false
 __meta__ = {
@@ -3830,6 +3925,7 @@ __meta__ = {
 }
 
 [node name="EnemyUnit2" type="Panel" parent="CameraRail/CameraRailFollow/Control/UpperHalf"]
+visible = false
 modulate = Color( 1, 1, 1, 0.803922 )
 margin_left = 768.0
 margin_top = 64.0
@@ -3842,7 +3938,7 @@ __meta__ = {
 [node name="Pic" type="AnimatedSprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit2"]
 position = Vector2( 33, 33 )
 scale = Vector2( 0.66, 0.66 )
-frames = SubResource( 32 )
+frames = SubResource( 35 )
 
 [node name="Name" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit2"]
 margin_left = 64.373
@@ -3880,8 +3976,8 @@ margin_top = 43.0
 margin_right = 242.0
 margin_bottom = 60.0
 theme = SubResource( 29 )
-custom_styles/fg = SubResource( 33 )
-custom_styles/bg = SubResource( 34 )
+custom_styles/fg = SubResource( 36 )
+custom_styles/bg = SubResource( 37 )
 max_value = 1.0
 percent_visible = false
 __meta__ = {
@@ -3889,6 +3985,7 @@ __meta__ = {
 }
 
 [node name="EnemyUnit3" type="Panel" parent="CameraRail/CameraRailFollow/Control/UpperHalf"]
+visible = false
 modulate = Color( 1, 1, 1, 0.803922 )
 margin_left = 768.0
 margin_top = 128.0
@@ -3901,7 +3998,7 @@ __meta__ = {
 [node name="Pic" type="AnimatedSprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit3"]
 position = Vector2( 33, 33 )
 scale = Vector2( 0.66, 0.66 )
-frames = SubResource( 32 )
+frames = SubResource( 35 )
 
 [node name="Name" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit3"]
 margin_left = 64.373
@@ -3939,8 +4036,8 @@ margin_top = 43.0
 margin_right = 242.0
 margin_bottom = 60.0
 theme = SubResource( 29 )
-custom_styles/fg = SubResource( 33 )
-custom_styles/bg = SubResource( 34 )
+custom_styles/fg = SubResource( 36 )
+custom_styles/bg = SubResource( 37 )
 max_value = 1.0
 percent_visible = false
 __meta__ = {
@@ -3948,6 +4045,7 @@ __meta__ = {
 }
 
 [node name="EnemyUnit4" type="Panel" parent="CameraRail/CameraRailFollow/Control/UpperHalf"]
+visible = false
 modulate = Color( 1, 1, 1, 0.803922 )
 margin_left = 768.0
 margin_top = 192.0
@@ -3960,7 +4058,7 @@ __meta__ = {
 [node name="Pic" type="AnimatedSprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit4"]
 position = Vector2( 33, 33 )
 scale = Vector2( 0.66, 0.66 )
-frames = SubResource( 32 )
+frames = SubResource( 35 )
 
 [node name="Name" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit4"]
 margin_left = 64.373
@@ -3998,42 +4096,57 @@ margin_top = 43.0
 margin_right = 242.0
 margin_bottom = 60.0
 theme = SubResource( 29 )
-custom_styles/fg = SubResource( 33 )
-custom_styles/bg = SubResource( 34 )
+custom_styles/fg = SubResource( 36 )
+custom_styles/bg = SubResource( 37 )
 max_value = 1.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Notification" type="Button" parent="CameraRail/CameraRailFollow/Control/UpperHalf"]
+[node name="Notification" type="ColorRect" parent="CameraRail/CameraRailFollow/Control/UpperHalf"]
 margin_left = 448.0
 margin_right = 768.0
 margin_bottom = 96.0
-custom_styles/disabled = SubResource( 36 )
-disabled = true
+color = Color( 0, 0.76, 1, 1 )
 __meta__ = {
 "_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="FG" type="ColorRect" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Notification"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 312.0
+margin_bottom = 88.0
+__meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Ico" type="AnimatedSprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Notification"]
 position = Vector2( 49, 48 )
 scale = Vector2( 2.3125, 2.3125 )
-frames = SubResource( 37 )
+frames = SubResource( 38 )
 
 [node name="Label" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Notification"]
 margin_left = 88.0
 margin_top = 8.0
 margin_right = 312.0
 margin_bottom = 88.0
-custom_fonts/font = SubResource( 38 )
+custom_fonts/font = SubResource( 39 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Если вы это видите,
 рапортуйте баг
 
 У гопаря мало хп, кстати"
+valign = 1
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Notification"]
+one_shot = true
 
 [node name="TurnCamera" type="Button" parent="CameraRail/CameraRailFollow/Control"]
 margin_left = 256.0
@@ -4054,17 +4167,31 @@ current = true
 [node name="Chevron" type="AnimatedSprite" parent="."]
 position = Vector2( -160, 64 )
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 35 )
+frames = SubResource( 40 )
 
 [node name="GlobalTick" type="Timer" parent="."]
 wait_time = 0.01
 autostart = true
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+autoplay = true
+[connection signal="casted" from="Ongaku" to="." method="_on_Ongaku_casted"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/FightButtons/Attack" to="." method="_on_Attack_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/FightButtons/Info" to="." method="_on_Info_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/AttackOptions/OngakuCast" to="." method="_on_OngakuCast_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/AttackOptions/ChordCast" to="." method="_on_ChordCast_pressed"]
 [connection signal="toggled" from="CameraRail/CameraRailFollow/Control/LowerHalf/AttackOptions/PowerCast" to="." method="_on_PowerCast_toggled"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/AttackOptions/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/Skills/Skill1" to="." method="_on_SkillButton_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/Skills/Skill2" to="." method="_on_SkillButton_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/Skills/Skill3" to="." method="_on_SkillButton_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/Skills/Skill4" to="." method="_on_SkillButton_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/Skills/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/ActionOptions/Check" to="." method="_on_Check_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/ActionOptions/Skill" to="." method="_on_Skill_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/ActionOptions/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/CheckButtons/Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector/enemy_1" to="." method="_on_entity_selector_button_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector/enemy_2" to="." method="_on_entity_selector_button_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector/enemy_3" to="." method="_on_entity_selector_button_pressed"]
@@ -4073,6 +4200,7 @@ autostart = true
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector/friend_2" to="." method="_on_entity_selector_button_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector/friend_3" to="." method="_on_entity_selector_button_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector/friend_4" to="." method="_on_entity_selector_button_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/Dialogue/NextButton" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords/C" to="." method="_on_chordbutton_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords/D" to="." method="_on_chordbutton_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/ChordSelector/Chords/E" to="." method="_on_chordbutton_pressed"]
@@ -4094,6 +4222,7 @@ autostart = true
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit2/SelectThis" to="." method="_on_SelectThis_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit3/SelectThis" to="." method="_on_SelectThis_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit4/SelectThis" to="." method="_on_SelectThis_pressed"]
+[connection signal="timeout" from="CameraRail/CameraRailFollow/Control/UpperHalf/Notification/Timer" to="." method="_on_HideNotificationTimer_timeout"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/TurnCamera" to="." method="_on_TurnCamera_pressed"]
 [connection signal="timeout" from="CameraRail/CameraRailFollow/Control/TurnCamera/CameraTurnTick" to="." method="_on_CameraTurnTick_timeout"]
 [connection signal="timeout" from="GlobalTick" to="." method="_on_GlobalTick_timeout"]

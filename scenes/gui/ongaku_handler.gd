@@ -1,5 +1,5 @@
 extends Node2D
-
+signal casted
 
 var current_seq : String
 var demand
@@ -33,3 +33,4 @@ func cast(qseq,targ):
 	if reset:
 		current_seq = ""
 		print("This should be blank: {",current_seq,"}")
+		emit_signal("casted")

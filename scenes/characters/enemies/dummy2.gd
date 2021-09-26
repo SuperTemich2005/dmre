@@ -5,6 +5,7 @@ var maxhealth = 20
 var evasion = 0.2
 var entity_name = "Dummy 2"
 var resonance = "C"
+var description = """Second debug entity that strikes faster, than first dummy"""
 var recharge_rate = 0.01
 var can_attack = true
 var charge = 0
@@ -26,7 +27,7 @@ func attacks(id):
 	match id:
 		1:
 			print("1. Attacking ",target)
-			target.health -= base_damage + rng.randi_range(1,3)
+			target.health = clamp(target.health-base_damage-rng.randi_range(1,3),0,target.maxhealth)
 		2:
 			print("1. Attacking ",target)
 		3:
