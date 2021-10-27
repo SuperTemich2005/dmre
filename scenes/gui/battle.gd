@@ -31,7 +31,7 @@ var curmode = "Base"
 onready var ongaku = $Ongaku
 onready var noteworthy = $CameraRail/CameraRailFollow/Control/LowerHalf/OngakuCast/NoteCarrier
 func _ready():
-	TranslationServer.set_locale("en_us")
+	$"/root/Params".reloadInventory()
 	enemies = $"/root/Params".passed_enemies
 	party = $"/root/Params".passed_party
 	# СОЗДАНИЕ ВРАГОВ ----------------------------------------------------------
@@ -80,7 +80,7 @@ func _ready():
 
 # УТИЛИТЫ ----------------------------------------------------------------------
 func note_to_ypos(note):
-	print("Passed ",note," to note_to_ypos")
+	print("Passed ",note," to note_to_ypos") 
 	match note:
 		"C":
 			return 176
@@ -129,8 +129,8 @@ func _on_entity_selector_button_pressed():
 				break
 		for i in range(0,$CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector.get_children().size()):
 			if $CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector.get_children()[i].pressed:
-				targeted_entity = party_nodes[i]
-				targeted_entity_id = i+1
+				current_char = party_nodes[i]
+				current_char_id = i+1
 				#$Chevron.position = Vector2(targeted_entity.sprite.position.x,64)
 				print("Selecting party member ",targeted_entity," self-named ",targeted_entity.entity_name," under ID of ",targeted_entity_id)
 				break
@@ -163,9 +163,34 @@ func _on_Back_pressed():
 
 
 func alert(mode,text,dur):
-	pass # todo: remove this func
+	pass # todo: в пизду
 
-# ДЕЙСТВИЕ -------------------------------------------------------------------
+# ДЕЙСТВИЕ ---------------------------------------------------------------------
+func _on_Inventory_close_inv():
+	curmode = "Base"
+	$CameraRail/CameraRailFollow/Control/LowerHalf/Inventory.hide()
+	$CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector.hide()
+	$CameraRail/CameraRailFollow/Control/LowerHalf/FightButtons.show()
+
+
+func _on_Item_pressed():
+	curmode = "Inv"
+	$CameraRail/CameraRailFollow/Control/LowerHalf/FightButtons.hide()
+	$CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector.show()
+	$CameraRail/CameraRailFollow/Control/LowerHalf/Inventory.show()
+
+
+func _on_Inventory_use_item():
+	current_char.health += $CameraRail/CameraRailFollow/Control/LowerHalf/Inventory.selected_ent_restore_hp
+	current_char.powp += $CameraRail/CameraRailFollow/Control/LowerHalf/Inventory.selected_ent_restore_pp
+	current_char.insp += $CameraRail/CameraRailFollow/Control/LowerHalf/Inventory.selected_ent_restore_mp
+	get_node(PATH_TO_FRIEND_UNIT+str(current_char_id)+"/HP").value = current_char.health
+	get_node(PATH_TO_FRIEND_UNIT+str(current_char_id)+"/HP/Label").text = str(current_char.health)
+	get_node(PATH_TO_FRIEND_UNIT+str(current_char_id)+"/IP").value = current_char.insp
+	get_node(PATH_TO_FRIEND_UNIT+str(current_char_id)+"/IP/Label").text = str(current_char.insp)
+	get_node(PATH_TO_FRIEND_UNIT+str(current_char_id)+"/PPBG/PPFG/PP").text = str(current_char.powp)
+
+
 func _on_Info_pressed():
 	$CameraRail/CameraRailFollow/Control/LowerHalf/FightButtons.hide()
 	$CameraRail/CameraRailFollow/Control/LowerHalf/ActionOptions.show()
@@ -199,6 +224,14 @@ func _on_Attack_pressed():
 	$CameraRail/CameraRailFollow/Control/LowerHalf/FightButtons.hide()
 	$CameraRail/CameraRailFollow/Control/LowerHalf/AttackOptions.show()
 	curmode = "Attack"
+
+
+func _on_SelectThis_pressed():
+	for i in range(1,5):
+		if get_node(PATH_TO_FRIEND_UNIT+str(i)+"/SelectThis").pressed:
+			current_char = party_nodes[i-1]
+			current_char_id = i
+			print("Selecting ",current_char," which is the ",i,"nd")
 
 
 func _on_OngakuCast_pressed():
@@ -269,7 +302,7 @@ func _on_Note_pressed():
 					get_node("CameraRail/CameraRailFollow/Control/LowerHalf/OngakuCast/Notes/Note"+str(k)).rect_position = Vector2(0,0)
 
 
-# КАМЕРЫ -----------------------------------------------------------------------
+# КАМЕРЫ И ВРЕМЯ ---------------------------------------------------------------
 func _on_TurnCamera_pressed():
 	$CameraRail/CameraRailFollow/Control/TurnCamera/CameraTurnTick.start()
 	camera_direction = !camera_direction
@@ -292,7 +325,7 @@ func _on_CameraTurnTick_timeout():
 
 func _on_GlobalTick_timeout():
 	$GlobalTick.start()
-	if curmode != "Dialogue":
+	if curmode != "Dialogue" and curmode != "Inv":
 		for i in range(enemy_nodes.size()):
 			if enemy_nodes[i].health > 0:
 				enemy_nodes[i].charge = clamp(enemy_nodes[i].charge+enemy_nodes[i].recharge_rate,0,1)
@@ -319,19 +352,5 @@ func _on_GlobalTick_timeout():
 				get_node(PATH_TO_FRIEND_UNIT+str(i+1)+"/HP/Label").text = str(party_nodes[i].health)+"/"+str(party_nodes[i].maxhealth)
 
 
-func _on_SelectThis_pressed():
-	for i in range(1,5):
-		if get_node(PATH_TO_FRIEND_UNIT+str(i)+"/SelectThis").pressed:
-			current_char = party_nodes[i-1]
-			current_char_id = i
-			print("Selecting ",current_char," which is the ",i,"nd")
-
-
 func _on_HideNotificationTimer_timeout():
 	get_node(PATH_TO_NOTIFICATION).hide()
-
-
-func _on_Ongaku_casted():
-	for i in range(1,1+$Enemies.get_child_count()):
-		if $Enemies.get_child(i).health < $Enemies.get_child(i).maxhealth/4:
-			alert("!","У "+$Enemies.get_child(i).entity_name+" мало ХП!",5)

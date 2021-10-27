@@ -3423,6 +3423,7 @@ margin_right = 704.0
 text = "GL_BACK"
 
 [node name="Inventory" parent="CameraRail/CameraRailFollow/Control/LowerHalf" instance=ExtResource( 16 )]
+visible = false
 
 [node name="UpperHalf" type="Node2D" parent="CameraRail/CameraRailFollow/Control"]
 
@@ -4370,6 +4371,7 @@ autoplay = true
 [connection signal="casted" from="Ongaku" to="." method="_on_Ongaku_casted"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/FightButtons/Attack" to="." method="_on_Attack_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/FightButtons/Info" to="." method="_on_Info_pressed"]
+[connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/FightButtons/Item" to="." method="_on_Item_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/AttackOptions/OngakuCast" to="." method="_on_OngakuCast_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/AttackOptions/ChordCast" to="." method="_on_ChordCast_pressed"]
 [connection signal="toggled" from="CameraRail/CameraRailFollow/Control/LowerHalf/AttackOptions/PowerCast" to="." method="_on_PowerCast_toggled"]
@@ -4409,6 +4411,8 @@ autoplay = true
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/OngakuCast/NoteCarrier/B" to="." method="_on_Note_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/OngakuCast/NoteCarrier/С2" to="." method="_on_Note_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/OngakuCast/Back" to="." method="_on_Back_pressed"]
+[connection signal="close_inv" from="CameraRail/CameraRailFollow/Control/LowerHalf/Inventory" to="." method="_on_Inventory_close_inv"]
+[connection signal="use_item" from="CameraRail/CameraRailFollow/Control/LowerHalf/Inventory" to="." method="_on_Inventory_use_item"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit1/SelectThis" to="." method="_on_SelectThis_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit2/SelectThis" to="." method="_on_SelectThis_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit3/SelectThis" to="." method="_on_SelectThis_pressed"]

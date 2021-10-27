@@ -9,8 +9,10 @@ var charge = 0
 var recharge_rate = 0.005
 var insp = 5
 var insp_max = 5
+var powp = 5
 var entity_name = "Dummy Friend"
 var resonance = "C"
+var is_enemy = false
 onready var sprite = $Sprite
 var skills = [
 	"Skillcast simple",

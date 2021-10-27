@@ -108,10 +108,20 @@ func _on_BackFromSlotChooser_pressed():
 
 func new_save(id):
 	save_file.set_value("Basic","Language",TranslationServer.get_locale())
+	match TranslationServer.get_locale():
+		"en":
+			save_file.set_value("File"+str(id),"Inv","Guitar|Your guitar you've taken with you to the arts schools' contest. Used to cast ongaku|inv_guitar|0|0|0|false;")
+		"ru":
+			save_file.set_value("File"+str(id),"Inv","Гитара|Гитара, которую вы взяли с собой на конкурс школ искусств. Используется для колдовства онгаку|inv_guitar|0|0|0|false;")
+		"uk":
+			save_file.set_value("File"+str(id),"Inv","Гiтара|Гiтара, котру ви взяли з собою на конкурс школ мiстецтв. Потрiбна для чаклування онґаку|inv_guitar|0|0|0|false;")
+		_:
+			print("unknown locale")
 	params.current_savefile = id
 	print("Saving ",TranslationServer.get_locale()," in global savefile")
 	save_file.save("C:/Games/AZIE Games/DMRER/savefile.save")
-	get_tree().change_scene("res://scenes/dialogues/prologue/prologue.tscn")
+	#get_tree().change_scene("res://scenes/dialogues/prologue/prologue.tscn")
+	get_tree().change_scene("res://scenes/gui/battle.tscn")
 
 
 func load_save(id):

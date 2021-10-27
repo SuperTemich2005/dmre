@@ -10,6 +10,7 @@ var recharge_rate = 0.01
 var can_attack = true
 var charge = 0
 var target
+var is_enemy = true
 var rng = RandomNumberGenerator.new()
 var base_damage = 3
 onready var sprite = $Sprite

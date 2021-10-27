@@ -8,6 +8,7 @@ var resonance = "C"
 var recharge_rate = 0.005
 var charge = 0
 var target
+var is_enemy = true
 var rng = RandomNumberGenerator.new()
 var base_damage = 1
 var description = """Debug hostile entity that doesn't appear in game, unless something weird happens\n
