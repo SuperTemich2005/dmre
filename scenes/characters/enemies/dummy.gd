@@ -24,6 +24,11 @@ var attack_names = [
 func attacks(id):
 	print(get_parent().party_nodes)
 	target = get_parent().party_nodes[rng.randi_range(0,-1+get_parent().party_nodes.size())]
+	var att = 0
+	while target.health <= 0 and att < 10:
+		target = get_parent().party_nodes[rng.randi_range(0,-1+get_parent().party_nodes.size())]
+		print("whoops, dead target. retargeting, new target: ",target)
+		att+=1
 	match id:
 		_:
 			print("1. Attacking ",target)

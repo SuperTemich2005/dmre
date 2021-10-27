@@ -9,6 +9,13 @@ extends Node2D
 const PATH_TO_NOTIFICATION = "CameraRail/CameraRailFollow/Control/UpperHalf/Notification"
 const PATH_TO_FRIEND_UNIT = "CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit"
 const PATH_TO_ENEMY_UNIT = "CameraRail/CameraRailFollow/Control/UpperHalf/EnemyUnit"
+onready var note_a = load("res://music/fx/gui/note_a.ogg")
+onready var note_b = load("res://music/fx/gui/note_b.ogg")
+onready var note_c = load("res://music/fx/gui/note_c.ogg")
+onready var note_d = load("res://music/fx/gui/note_d.ogg")
+onready var note_e = load("res://music/fx/gui/note_e.ogg")
+onready var note_f = load("res://music/fx/gui/note_f.ogg")
+onready var note_g = load("res://music/fx/gui/note_g.ogg")
 var enemies # Массив для хранения врагов
 var enemy_nodes : Array # Массив для хранения нод врагов
 var party # Массив для хранения ГГ
@@ -24,6 +31,7 @@ var curmode = "Base"
 onready var ongaku = $Ongaku
 onready var noteworthy = $CameraRail/CameraRailFollow/Control/LowerHalf/OngakuCast/NoteCarrier
 func _ready():
+	TranslationServer.set_locale("en_us")
 	enemies = $"/root/Params".passed_enemies
 	party = $"/root/Params".passed_party
 	# СОЗДАНИЕ ВРАГОВ ----------------------------------------------------------
@@ -155,20 +163,7 @@ func _on_Back_pressed():
 
 
 func alert(mode,text,dur):
-	print("ALERT! ALERT!")
-	get_node(PATH_TO_NOTIFICATION).show()
-	get_node(PATH_TO_NOTIFICATION+"/Label").text = text
-	get_node(PATH_TO_NOTIFICATION+"/Timer").wait_time = dur
-	get_node(PATH_TO_NOTIFICATION+"/Timer").start()
-	get_node(PATH_TO_NOTIFICATION+"/Ico").animation = mode
-	match mode:
-		"i":
-			get_node(PATH_TO_NOTIFICATION).color = Color(0,0.76,1)
-		"attention":
-			get_node(PATH_TO_NOTIFICATION).color = Color(1,1,0)
-		"aaa":
-			get_node(PATH_TO_NOTIFICATION).color = Color(1,0,0)
-
+	pass # todo: remove this func
 
 # ДЕЙСТВИЕ -------------------------------------------------------------------
 func _on_Info_pressed():
@@ -256,15 +251,17 @@ func _on_chordbutton_pressed():
 func _on_Note_pressed():
 	for i in range(noteworthy.get_child_count()):
 		if noteworthy.get_child(i).pressed:
-			ongaku.current_seq = ongaku.current_seq+noteworthy.get_child(i).text[2]
 			print("Current sequence is ",ongaku.current_seq)
-			ongaku.cast(ongaku.current_seq,targeted_entity)
+			ongaku.current_seq = ongaku.current_seq+noteworthy.get_child(i).text[2]
+			ongaku.cast(ongaku.current_seq,targeted_entity,current_char.insp >= ongaku.demand)
 			current_char.insp -= ongaku.demand
 			get_node(PATH_TO_FRIEND_UNIT+str(current_char_id)+"/IP").set_value(float(current_char.insp))
 			get_node(PATH_TO_FRIEND_UNIT+str(current_char_id)+"/IP/Label").text = str(current_char.insp)+"/"+str(current_char.insp_max)
 			get_node(PATH_TO_ENEMY_UNIT+str(targeted_entity_id)+"/HP").set_value(targeted_entity.health)
 			get_node(PATH_TO_ENEMY_UNIT+str(targeted_entity_id)+"/HP/Label").text = str(targeted_entity.health)+"/"+str(targeted_entity.maxhealth)
 			print(ongaku.cur_seq_len())
+			$PickedString.set_stream(load("res://music/fx/gui/note_"+noteworthy.get_child(i).text[2]+".ogg"))
+			$PickedString.play()
 			if ongaku.cur_seq_len() != 0:
 				get_node("CameraRail/CameraRailFollow/Control/LowerHalf/OngakuCast/Notes/Note"+str(ongaku.cur_seq_len())).rect_position = Vector2(344+ongaku.cur_seq_len()*40,note_to_ypos(noteworthy.get_child(i).text[2]))
 			else:

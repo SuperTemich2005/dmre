@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://scenes/gui/battle.gd" type="Script" id=1]
 [ext_resource path="res://themes/default_theme.tres" type="Theme" id=2]
@@ -9,8 +9,13 @@
 [ext_resource path="res://scenes/gui/ongaku_handler.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sprites/notification_icons/info.png" type="Texture" id=8]
 [ext_resource path="res://sprites/notification_icons/get_rekt.png" type="Texture" id=9]
-[ext_resource path="res://sprites/notification_icons/attention.png" type="Texture" id=10]
+[ext_resource path="res://sprites/notification_icons/zaporizhzhya_air.png" type="Texture" id=10]
 [ext_resource path="res://music/battle1.ogg" type="AudioStream" id=11]
+[ext_resource path="res://music/fx/gui/note_a.ogg" type="AudioStream" id=12]
+[ext_resource path="res://sprites/notification_icons/wtf_heat_in_winter.png" type="Texture" id=13]
+[ext_resource path="res://sprites/notification_icons/navodnenie.png" type="Texture" id=14]
+[ext_resource path="res://sprites/notification_icons/chill_dude.png" type="Texture" id=15]
+[ext_resource path="res://scenes/gui/Inventory.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -1344,12 +1349,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "temich",
+"name": "dummy",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "dummy",
+"name": "temich",
 "speed": 5.0
 } ]
 
@@ -2636,28 +2641,59 @@ border_color = Color( 0.501961, 0.537255, 0.0705882, 1 )
 [sub_resource type="StyleBoxFlat" id=37]
 bg_color = Color( 0.462745, 0.501961, 0, 1 )
 
-[sub_resource type="SpriteFrames" id=38]
-animations = [ {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "attention",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "aaa",
-"speed": 5.0
-} ]
+[sub_resource type="StyleBoxFlat" id=38]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 1, 0.984314, 1 )
 
 [sub_resource type="DynamicFont" id=39]
+size = 15
 font_data = ExtResource( 3 )
 
-[sub_resource type="SpriteFrames" id=40]
+[sub_resource type="StyleBoxFlat" id=40]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=41]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0.741176, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=42]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.262745, 1, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=43]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0.760784, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=44]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 1, 0.364706, 0, 1 )
+
+[sub_resource type="SpriteFrames" id=45]
 animations = [ {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
@@ -3386,6 +3422,8 @@ margin_top = -64.0
 margin_right = 704.0
 text = "GL_BACK"
 
+[node name="Inventory" parent="CameraRail/CameraRailFollow/Control/LowerHalf" instance=ExtResource( 16 )]
+
 [node name="UpperHalf" type="Node2D" parent="CameraRail/CameraRailFollow/Control"]
 
 [node name="FriendUnit1" type="Panel" parent="CameraRail/CameraRailFollow/Control/UpperHalf"]
@@ -4104,49 +4142,197 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Notification" type="ColorRect" parent="CameraRail/CameraRailFollow/Control/UpperHalf"]
-margin_left = 448.0
-margin_right = 768.0
-margin_bottom = 96.0
-color = Color( 0, 0.76, 1, 1 )
+[node name="Conditions" type="Node2D" parent="CameraRail/CameraRailFollow/Control/UpperHalf"]
+position = Vector2( 480, 0 )
+scale = Vector2( 0.72633, 0.72633 )
+
+[node name="Blizzard" type="Button" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Conditions"]
+margin_right = 88.0
+margin_bottom = 88.0
+custom_styles/disabled = SubResource( 38 )
+disabled = true
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="FG" type="ColorRect" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Notification"]
+[node name="Sprite" type="Sprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Conditions/Blizzard"]
+position = Vector2( 44, 36 )
+scale = Vector2( 0.933333, 0.933333 )
+texture = ExtResource( 15 )
+
+[node name="Label" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Conditions/Blizzard"]
 margin_left = 8.0
-margin_top = 8.0
-margin_right = 312.0
-margin_bottom = 88.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Ico" type="AnimatedSprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Notification"]
-position = Vector2( 49, 48 )
-scale = Vector2( 2.3125, 2.3125 )
-frames = SubResource( 38 )
-
-[node name="Label" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Notification"]
-margin_left = 88.0
-margin_top = 8.0
-margin_right = 312.0
-margin_bottom = 88.0
+margin_top = 61.2464
+margin_right = 80.0
+margin_bottom = 85.2464
 custom_fonts/font = SubResource( 39 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Если вы это видите,
-рапортуйте баг
-
-У гопаря мало хп, кстати"
+custom_colors/font_color = Color( 0, 1, 0.984314, 1 )
+text = "BAT_BLIZZARD"
+align = 1
 valign = 1
-autowrap = true
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Notification"]
-one_shot = true
+[node name="Heat" type="Button" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Conditions"]
+margin_left = 88.0
+margin_right = 176.0
+margin_bottom = 88.0
+custom_styles/disabled = SubResource( 40 )
+disabled = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Conditions/Heat"]
+position = Vector2( 44, 36 )
+scale = Vector2( 0.933333, 0.933333 )
+texture = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Conditions/Heat"]
+margin_left = 8.0
+margin_top = 61.2464
+margin_right = 80.0
+margin_bottom = 85.2464
+custom_fonts/font = SubResource( 39 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "BAT_HEAT"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rain" type="Button" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Conditions"]
+margin_left = 176.0
+margin_right = 264.0
+margin_bottom = 88.0
+custom_styles/disabled = SubResource( 41 )
+disabled = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Conditions/Rain"]
+position = Vector2( 44, 36 )
+scale = Vector2( 0.933333, 0.933333 )
+texture = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Conditions/Rain"]
+margin_left = 8.0
+margin_top = 61.2464
+margin_right = 80.0
+margin_bottom = 85.2464
+custom_fonts/font = SubResource( 39 )
+custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
+text = "BAT_RAIN"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Toxic" type="Button" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Conditions"]
+margin_left = 264.343
+margin_top = 7.62939e-06
+margin_right = 352.343
+margin_bottom = 88.0
+custom_styles/disabled = SubResource( 42 )
+disabled = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Conditions/Toxic"]
+position = Vector2( 44, 36 )
+scale = Vector2( 0.933333, 0.933333 )
+texture = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Conditions/Toxic"]
+margin_left = 8.0
+margin_top = 61.2464
+margin_right = 80.0
+margin_bottom = 85.2464
+custom_fonts/font = SubResource( 39 )
+custom_colors/font_color = Color( 0.262745, 1, 0, 1 )
+text = "BAT_TOXIC"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoMercy" type="Button" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Conditions"]
+margin_left = 88.0
+margin_top = 88.0
+margin_right = 176.0
+margin_bottom = 176.0
+custom_styles/disabled = SubResource( 43 )
+disabled = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Conditions/NoMercy"]
+position = Vector2( 44, 36 )
+scale = Vector2( 1.75, 1.75 )
+texture = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Conditions/NoMercy"]
+margin_left = 8.0
+margin_top = 61.2464
+margin_right = 80.0
+margin_bottom = 85.2464
+custom_fonts/font = SubResource( 39 )
+custom_colors/font_color = Color( 0, 0.760784, 1, 1 )
+text = "BAT_MERCILESS"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Boss" type="Button" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Conditions"]
+margin_left = 176.0
+margin_top = 88.0
+margin_right = 264.0
+margin_bottom = 176.0
+custom_styles/disabled = SubResource( 44 )
+disabled = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Conditions/Boss"]
+position = Vector2( 44, 36 )
+scale = Vector2( 1.75, 1.75 )
+texture = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="CameraRail/CameraRailFollow/Control/UpperHalf/Conditions/Boss"]
+margin_left = 8.0
+margin_top = 61.2464
+margin_right = 80.0
+margin_bottom = 85.2464
+custom_fonts/font = SubResource( 39 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "BAT_TIER2"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TurnCamera" type="Button" parent="CameraRail/CameraRailFollow/Control"]
 margin_left = 256.0
@@ -4165,9 +4351,10 @@ anchor_mode = 0
 current = true
 
 [node name="Chevron" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( -160, 64 )
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 40 )
+frames = SubResource( 45 )
 
 [node name="GlobalTick" type="Timer" parent="."]
 wait_time = 0.01
@@ -4175,6 +4362,10 @@ autostart = true
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
+autoplay = true
+
+[node name="PickedString" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
 autoplay = true
 [connection signal="casted" from="Ongaku" to="." method="_on_Ongaku_casted"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/LowerHalf/FightButtons/Attack" to="." method="_on_Attack_pressed"]
@@ -4222,7 +4413,6 @@ autoplay = true
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit2/SelectThis" to="." method="_on_SelectThis_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit3/SelectThis" to="." method="_on_SelectThis_pressed"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/UpperHalf/FriendUnit4/SelectThis" to="." method="_on_SelectThis_pressed"]
-[connection signal="timeout" from="CameraRail/CameraRailFollow/Control/UpperHalf/Notification/Timer" to="." method="_on_HideNotificationTimer_timeout"]
 [connection signal="pressed" from="CameraRail/CameraRailFollow/Control/TurnCamera" to="." method="_on_TurnCamera_pressed"]
 [connection signal="timeout" from="CameraRail/CameraRailFollow/Control/TurnCamera/CameraTurnTick" to="." method="_on_CameraTurnTick_timeout"]
 [connection signal="timeout" from="GlobalTick" to="." method="_on_GlobalTick_timeout"]

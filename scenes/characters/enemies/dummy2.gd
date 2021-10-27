@@ -23,6 +23,11 @@ var attack_names = [
 
 func attacks(id):
 	target = get_parent().party_nodes[rng.randi_range(0,-1+get_parent().party_nodes.size())]
+	var att = 0
+	while target.health <= 0 and att < 10:
+		target = get_parent().party_nodes[rng.randi_range(0,-1+get_parent().party_nodes.size())]
+		print("whoops, dead target. retargeting, new target: ",target)
+		att+=1
 	print("Dummy 2 uses shared move")
 	match id:
 		1:

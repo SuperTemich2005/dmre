@@ -1,6 +1,6 @@
 extends Node2D
 
-var health = 200
+var health = 30
 var maxhealth = 200
 var evasion = 0.2
 var base_damage = 3
