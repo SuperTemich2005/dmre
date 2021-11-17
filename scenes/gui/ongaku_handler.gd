@@ -21,15 +21,15 @@ func cast(qseq,targ,succ):
 	var reset = false
 	match qseq:
 		"DEFDEFDE": # Милонга
-			if succ:
+			if succ.insp>=5:
 				print("Casting milonga")
 				demand(5)
-				targ.health -= 5
+				targ.health -= 5-int($"/root/Params".condits[3])*2
 			else:
 				demand(0)
 			reset = true
 		"ABCBE": # Перевал
-			if succ:
+			if succ.insp>=5:
 				print("Casting pereval")
 				demand(5)
 			else:

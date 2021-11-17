@@ -14,6 +14,7 @@ var base_damage = 1
 var description = """Debug hostile entity that doesn't appear in game, unless something weird happens\n
 		Uses Temich's sprite because I don't want to spend time on drawing sprites nobody would ever see."""
 onready var sprite = $Sprite
+var givesxp = 1
 
 var attack_names = [
 	"Attack",
@@ -34,3 +35,6 @@ func attacks(id):
 		_:
 			print("1. Attacking ",target)
 			target.health = clamp(target.health-base_damage-rng.randi_range(1,3),0,target.maxhealth)
+	target.get_node("Sprite").animation = "damage"
+	if target.health <= 0:
+		target.get_node("Sprite").animation = "down"
