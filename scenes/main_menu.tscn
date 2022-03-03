@@ -1124,6 +1124,7 @@ margin_right = 287.0
 margin_bottom = 78.0
 theme = ExtResource( 5 )
 text = "GL_BACK"
+
 [connection signal="timeout" from="FadeIn/Tick" to="." method="_on_Tick_timeout"]
 [connection signal="timeout" from="Logotype/LogoShow" to="." method="_on_LogoShow_timeout"]
 [connection signal="pressed" from="Logotype/PathThatSlidesMenu/PathFollow2D/PressToStart/Start" to="." method="_on_Start_pressed"]
