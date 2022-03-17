@@ -1,82 +1,36 @@
 extends Node2D
-signal close_inv
-signal use_item
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-var selected_ent
-var selected_ent_restore_hp = 0
-var selected_ent_restore_pp = 0
-var selected_ent_restore_mp = 0
-var selected_ent_spec_event
-var page
-# Called when the node enters the scene tree for the first time.
+signal _on_Inventory_close_inv
+onready var params = get_node("/root/Params")
+var page = 0
 func _ready():
-	page = 0
-	for i in range(0,clamp(10,0,$"/root/Params".inventory.size())):
-		get_node("Page1/Items/ItemSlot"+str(i+1)).text = $"/root/Params".inventory[i].split("|")[0]
-		if get_node("Page1/Items/ItemSlot"+str(i+1)).text != "":
-			get_node("Page1/Items/ItemSlot"+str(i+1)).show()
+	$Page1/Page.text = "1/"+str(1+ceil(params.inventory.size()/10))
+	print(params.inventory)
+	reload()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func reload():
+	for i in $Page1/Items.get_children():
+		i.hide()
+	for i in range(0,clamp(params.inventory.size(),page*10,10+page*10)-page*10):
+		$Page1/Items.get_child(i).text = tr(params.inventory[clamp(i+page*10,0,params.inventory.size()-1)])
+		if $Page1/Items.get_child(i).text != "":
+			$Page1/Items.get_child(i).show()
 
 
-func _on_ItemSlot_pressed():
-	for i in range(0,$Page1/Items.get_child_count()):
-		if $Page1/Items.get_child(i).pressed:
-			selected_ent = i+page*10
-			$Page2.show()
-			$Page2/SelItemName.text = $"/root/Params".inventory[selected_ent].split("|")[0]
-			$IcoBG/Sprite.animation = $"/root/Params".inventory[selected_ent].split("|")[2]
-			$Page2/ItemDescription.text = $"/root/Params".inventory[selected_ent].split("|")[1]
-			$Page2/RestoreHPbg/Param.text = $"/root/Params".inventory[selected_ent].split("|")[3]
-			$Page2/RestoreMPbg/Param.text = $"/root/Params".inventory[selected_ent].split("|")[4]
-			$Page2/RestorePPbg/Param.text = $"/root/Params".inventory[selected_ent].split("|")[5]
-			match $"/root/Params".inventory[selected_ent].split("|")[6]:
-				_:
-					$Page2/SpecEventBg/Param.text = tr("INV_NONE_EFFECT")
-			selected_ent_restore_hp = int($"/root/Params".inventory[selected_ent].split("|")[3])
-			selected_ent_restore_mp = int($"/root/Params".inventory[selected_ent].split("|")[4])
-			selected_ent_restore_pp = int($"/root/Params".inventory[selected_ent].split("|")[5])
-			$Page1.hide()
+func _on_Close_pressed():
+	emit_signal("_on_Inventory_close_inv")
 
 
 func _on_NextPage_pressed():
-	page = clamp(page+1,0,4)
-	refresh()
+	page = clamp(page+1,0,ceil(params.inventory.size()/10))
+	$Page1/Page.text = str(page+1)+"/"+str(1+ceil(params.inventory.size()/10))
+	reload()
 
 
 func _on_PrevPage_pressed():
-	page = clamp(page-1,0,4)
-	refresh()
-
-
-func _on_Use_pressed():
-	emit_signal("use_item")
-	$Page1.show()
-	$Page2.hide()
-	if $"/root/Params".inventory[selected_ent].split("|")[7] != "true" and $"/root/Params".inventory[selected_ent].split("|")[7] != "false":
-		print("IN-GAME ERROR: MISSPLITTED INVENTORY PAGE! Disposable flag is not true and is not false")
-	if $"/root/Params".inventory[selected_ent].split("|")[7] == "true":
-		print("Disposing of ",$"/root/Params".inventory[selected_ent])
-		$"/root/Params".inventory[selected_ent] = ""
-		$Page1/Page.text = str(page+1)+"/5"
-		for i in range(0,$Page1/Items.get_child_count()):
-			$Page1/Items.get_child(i).hide()
-		for i in range(page*10,clamp(10+page*10,0,$"/root/Params".inventory.size())):
-			get_node("Page1/Items/ItemSlot"+str(i+1-page*10)).text = $"/root/Params".inventory[i].split("|")[0]
-			if get_node("Page1/Items/ItemSlot"+str(i+1-page*10)).text != "":
-				get_node("Page1/Items/ItemSlot"+str(i+1-page*10)).show()
-		$"/root/Params".updateInventory()
-	else:
-		pass
+	page = clamp(page-1,0,ceil(params.inventory.size()/10))
+	$Page1/Page.text = str(page+1)+"/"+str(1+ceil(params.inventory.size()/10))
+	reload()
 
 
 func _on_Back_pressed():
@@ -84,15 +38,30 @@ func _on_Back_pressed():
 	$Page2.hide()
 
 
-func _on_Close_pressed():
-	emit_signal("close_inv")
-
-
-func refresh():
-	$Page1/Page.text = str(page+1)+"/5"
+func _on_ItemSlot_pressed():
 	for i in range(0,$Page1/Items.get_child_count()):
-		$Page1/Items.get_child(i).hide()
-	for i in range(page*10,clamp(10+page*10,0,$"/root/Params".inventory.size())):
-		get_node("Page1/Items/ItemSlot"+str(i+1-page*10)).text = $"/root/Params".inventory[i].split("|")[0]
-		if get_node("Page1/Items/ItemSlot"+str(i+1-page*10)).text != "":
-			get_node("Page1/Items/ItemSlot"+str(i+1-page*10)).show()
+		print(i)
+		if $Page1/Items.get_child(i).pressed:
+			print("AAAAAAAAAA")
+			print(params.inventory[i+page*10]+"_WHATEVER")
+			print(i," ",$Page1/Items.get_child(i).name)
+			$IcoBG/Sprite.animation = params.inventory[i+page*10].to_lower()
+			$Page2/ItemDescription.text = tr(params.inventory[i+page*10]+"_DESC")
+			$Page2/RestoreHPbg/Param.text = tr(params.inventory[i+page*10]+"_STATS").split(":")[0]
+			$Page2/RestorePPbg/Param.text = tr(params.inventory[i+page*10]+"_STATS").split(":")[1]
+			$Page2/RestoreMPbg/Param.text = tr(params.inventory[i+page*10]+"_STATS").split(":")[2]
+	$Page1.hide()
+	$Page2.show()
+
+
+func _on_Use_pressed():
+	get_parent().current_char.health = clamp(get_parent().current_char.health+int(tr($IcoBG/Sprite.animation.to_upper()+"_STATS").split(":")[0]),0,get_parent().current_char.maxhealth)
+	get_parent().current_char.powp = clamp(get_parent().current_char.powp+int(tr($IcoBG/Sprite.animation.to_upper()+"_STATS").split(":")[1]),0,5)
+	get_parent().current_char.insp = clamp(get_parent().current_char.insp+int(tr($IcoBG/Sprite.animation.to_upper()+"_STATS").split(":")[2]),0,get_parent().current_char.insp_max)
+	if tr($IcoBG/Sprite.animation.to_upper()+"_STATS").split(":")[2] == "true":
+		for i in range(params.inventory):
+			if params.inventory[i] == tr($IcoBG/Sprite.animation.to_upper()+"_STATS").split(":")[2]:
+				params.inventory.pop(i)
+				var save_file = ConfigFile.new()
+				save_file.set_value("File"+params.current_savefile,"Inv",params.inventory.join(";"))
+				save_file.save("C:/Games/AZIE Games/DMRER/savefile.save")

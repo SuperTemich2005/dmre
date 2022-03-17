@@ -20,18 +20,3 @@ func _ready():
 		"dummy",
 		"dummy",
 	]
-
-
-func reloadInventory():
-	print("reloading inventory")
-	inventory = savefile.get_value("File"+str(current_savefile),"Inv","no inventory found wtf;").split(";")
-	#if inventory[0] != null:
-
-
-func updateInventory():
-	var inventory_to_write = ""
-	for i in inventory:
-		inventory_to_write = inventory_to_write+i+";"
-	print("updating inventory. current inventory: ",inventory_to_write)
-	savefile.set_value("File"+str(current_savefile),"Inv",inventory_to_write)
-	savefile.save("C:/Games/AZIE Games/DMRER/savefile.save")

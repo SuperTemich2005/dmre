@@ -108,7 +108,7 @@ func _on_BackFromSlotChooser_pressed():
 
 func new_save(id):
 	save_file.set_value("Basic","Language",TranslationServer.get_locale())
-	save_file.set_value("File"+str(id),"Inv","guitar;bounty")
+	save_file.set_value("File"+str(id),"Inv","INV_ITEM_GUITAR;INV_ITEM_BOUNTY")
 	params.current_savefile = id
 	print("Saving ",TranslationServer.get_locale()," in global savefile")
 	save_file.save("C:/Games/AZIE Games/DMRER/savefile.save")

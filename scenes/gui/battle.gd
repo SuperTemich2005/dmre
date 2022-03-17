@@ -31,7 +31,6 @@ var curmode = "Base"
 onready var ongaku = $Ongaku
 onready var noteworthy = $CameraRail/CameraRailFollow/Control/LowerHalf/OngakuCast/NoteCarrier
 func _ready():
-	$"/root/Params".reloadInventory()
 	TranslationServer.set_locale("en")
 	enemies = $"/root/Params".passed_enemies
 	party = $"/root/Params".passed_party
@@ -177,6 +176,7 @@ func _on_Back_pressed():
 	$CameraRail/CameraRailFollow/Control/LowerHalf/CheckButtons.hide()
 	$CameraRail/CameraRailFollow/Control/LowerHalf/Skills.hide()
 	curmode = "Base"
+	$BGM.volume_db = 0
 
 
 func alert(mode,text,dur):
@@ -229,7 +229,6 @@ func _on_Item_pressed():
 	$CameraRail/CameraRailFollow/Control/LowerHalf/FightButtons.hide()
 	$CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector.show()
 	$CameraRail/CameraRailFollow/Control/LowerHalf/Inventory.show()
-	$"/root/Params".reloadInventory()
 
 
 func _on_Inventory_use_item():
@@ -291,6 +290,7 @@ func _on_OngakuCast_pressed():
 	$CameraRail/CameraRailFollow/Control/LowerHalf/EnemySelector.show()
 	$CameraRail/CameraRailFollow/Control/LowerHalf/FriendSelector.show()
 	$CameraRail/CameraRailFollow/Control/LowerHalf/OngakuCast.show()
+	$BGM.volume_db = -10
 
 
 func _on_ChordCast_pressed():
