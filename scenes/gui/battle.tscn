@@ -1320,12 +1320,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "temich",
+"name": "dummy",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "dummy",
+"name": "temich",
 "speed": 5.0
 } ]
 
@@ -3404,6 +3404,7 @@ margin_right = 704.0
 text = "GL_BACK"
 
 [node name="Inventory" parent="CameraRail/CameraRailFollow/Control/LowerHalf" instance=ExtResource( 16 )]
+visible = false
 position = Vector2( 280, -344 )
 
 [node name="Endfight" type="Label" parent="CameraRail/CameraRailFollow/Control/LowerHalf"]
@@ -3543,9 +3544,6 @@ margin_bottom = 64.0
 custom_styles/hover = SubResource( 34 )
 custom_styles/pressed = SubResource( 35 )
 custom_styles/normal = SubResource( 36 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="FriendUnit2" type="Panel" parent="CameraRail/CameraRailFollow/Control/UpperHalf"]
 visible = false

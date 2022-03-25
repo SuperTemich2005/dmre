@@ -67,6 +67,7 @@ number_7={
 
 [locale]
 
+fallback="ru"
 translations=PoolStringArray( "res://locale/locales.en.translation", "res://locale/locales.ru.translation", "res://locale/locales.uk.translation" )
 translation_remaps={
 "res://sprites/logo.png": PoolStringArray( "res://sprites/logo_en.png:en", "res://sprites/logo_uk.png:uk" ),

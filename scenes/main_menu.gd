@@ -32,18 +32,17 @@ func _ready():
 #	pass
 
 
-func _on_Tick_timeout():
-	$FadeIn.color = $FadeIn.color + Color(0.1,0.1,0.1)
-	if $FadeIn.color.r >= 1.0:
+func _process(delta):
+	$Path2D/PathFollow2D.set_offset(($Path2D/PathFollow2D.get_offset()+bg_movement_speed*delta))
+	if floor($FadeIn.color.r) == 1.0:
+		$FadeIn.color = $FadeIn.color + Color(10,10,10)
 		print("Stopping ticks")
-		$FadeIn/Tick.stop()
 		$Path2D/PathFollow2D/BackgroundTileMap.show()
 		$BGM.play()
 		$Logotype/LogoShow.start()
-
-
-func _process(delta):
-	$Path2D/PathFollow2D.set_offset(($Path2D/PathFollow2D.get_offset()+bg_movement_speed*delta))
+	else:
+		$FadeIn.color = $FadeIn.color + Color(0.01,0.01,0.01)
+		print($FadeIn.color.r)
 
 
 func _on_LogoShow_timeout():

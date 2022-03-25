@@ -939,10 +939,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tick" type="Timer" parent="FadeIn"]
-wait_time = 0.1
-autostart = true
-
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 369.877, 241.494 )
 stream = ExtResource( 2 )
@@ -969,7 +965,6 @@ tile_data = PoolIntArray( -5, 5, 0, 65531, 5, 0, 65532, 5, 0, 0, 59, 0, 1, 45, 0
 visible = false
 position = Vector2( 482.247, 118.794 )
 frames = SubResource( 3 )
-frame = 4
 playing = true
 
 [node name="Version" type="Label" parent="Logotype"]
@@ -1004,15 +999,9 @@ margin_right = 341.0
 margin_bottom = 317.0
 theme = ExtResource( 5 )
 text = "MM_PRESS_TO_START"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Boing" type="AudioStreamPlayer" parent="Logotype/PathThatSlidesMenu/PathFollow2D/PressToStart"]
 stream = ExtResource( 8 )
-
-[node name="Tick" type="Timer" parent="Logotype/PathThatSlidesMenu/PathFollow2D"]
-wait_time = 0.01
 
 [node name="MainMenuItself" type="Node2D" parent="Logotype/PathThatSlidesMenu/PathFollow2D"]
 position = Vector2( 796.24, 221.696 )
@@ -1125,10 +1114,11 @@ margin_bottom = 78.0
 theme = ExtResource( 5 )
 text = "GL_BACK"
 
-[connection signal="timeout" from="FadeIn/Tick" to="." method="_on_Tick_timeout"]
+[node name="Tick" type="Timer" parent="Logotype/PathThatSlidesMenu/PathFollow2D"]
+wait_time = 0.01
+
 [connection signal="timeout" from="Logotype/LogoShow" to="." method="_on_LogoShow_timeout"]
 [connection signal="pressed" from="Logotype/PathThatSlidesMenu/PathFollow2D/PressToStart/Start" to="." method="_on_Start_pressed"]
-[connection signal="timeout" from="Logotype/PathThatSlidesMenu/PathFollow2D/Tick" to="." method="_on_MainMenuTick_timeout"]
 [connection signal="pressed" from="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer/NewGame" to="." method="_on_NewGame_pressed"]
 [connection signal="pressed" from="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="timeout" from="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer/Settings/Tick" to="." method="_on_ToSettingsTick_timeout"]
@@ -1138,3 +1128,4 @@ text = "GL_BACK"
 [connection signal="pressed" from="Logotype/PathThatSlidesMenu/PathFollow2D/MainMenuItself/VBoxContainer2/Back" to="." method="_on_BackFromSlotChooser_pressed"]
 [connection signal="pressed" from="Logotype/PathThatSlidesMenu/PathFollow2D/Settings/VBoxContainer/ChangeLang" to="." method="_on_ChangeLang_pressed"]
 [connection signal="pressed" from="Logotype/PathThatSlidesMenu/PathFollow2D/Settings/VBoxContainer/Back" to="." method="_on_Back_pressed"]
+[connection signal="timeout" from="Logotype/PathThatSlidesMenu/PathFollow2D/Tick" to="." method="_on_MainMenuTick_timeout"]
